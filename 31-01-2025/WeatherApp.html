@@ -416,6 +416,8 @@ nav{
     const  input=document.querySelector('.input')
     const suggetion=document.querySelector('#suggetion')
     let cities;
+    let timer;
+
 
 
      getLocation();   
@@ -564,25 +566,23 @@ nav{
     async function debounce(event)
     {
         const query=event.target.value;
-        let timer;
-        clearInterval(timer);
-        timer=setTimeout(()=>{
+        clearTimeout(timer);    
+        timer=setTimeout(async ()=>{
             try {
-              const response = fetch(`http://localhost:3000/api/city?q=${query}`, {
+              const response =await fetch(`http://localhost:3000/api/city?q=${query}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
                        }
                  });
-                 
-                 response.then(()=>
-                {
-                    const data=response.json();
+              
+                    // console.log(city);
+                    
+                    const data=await response.json();
                     cities=data.cities
                     console.log("Fetched Cities:", cities);
                     showSuggetion();
-                })
-               
+             
          } catch (error) {
                suggetion.innerHTML='';
                suggetion.style.visibility='hidden'

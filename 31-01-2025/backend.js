@@ -38,6 +38,8 @@ app.get("/api/city", async (req, res) => {
         return res.json({ cities });
 
     } catch (error) {
+        console.log(error);
+        
         return res.status(500).json({ error: "Internal Server Error" });
     }   
 });
