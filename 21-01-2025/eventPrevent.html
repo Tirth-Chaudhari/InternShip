@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function Hide()
+    {
+        alert('hide function')
+        
+    }
+    hide.addEventListener('hide',function(event){
+        alert('prevent function')
+        event.preventDefault()
+    })
+</script>
+<style>
+
+</style>
+<body>
+    
+
+    <div id='hide' onclick="Hide()">Hide Content</div>
+
+
+
+</body>
+</html>

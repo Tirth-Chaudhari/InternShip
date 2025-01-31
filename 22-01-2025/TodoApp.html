@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+</head>
+<style>
+    main {
+        background-color: black;
+        height: 200vh;
+    }
+
+    header {
+        display: flex;
+        color: white;
+        justify-content: end;
+        background: linear-gradient(to right, #ba4089, #a46735,rgb(62, 174, 62));
+        padding: .3rem;
+        /* background: linear-gradient(to right, #f472b6, #7c3aed); */
+
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        width: 75%;
+    }
+
+    .search {
+        display: flex;
+        justify-content: end;
+        width: 15%;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 1%;
+        right: 2%;
+    }
+
+    footer button {
+        border-radius: 10px;
+        padding: 0.3rem .5rem;
+        font-size: 1rem;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.3s ease;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+    }
+
+    footer button:hover {
+        transform: scale(1.1);
+        background: linear-gradient(to right, #f65d37, #fb974a);
+
+    }
+
+    .form-container {
+        position: fixed;
+        top: 50%;
+        left: 51.5%;
+        transform: translate(-50%, -50%) scale(0); /* Centering with scaling */
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        gap: 0.5rem;
+        border: 2px solid white;
+        padding: 2rem;
+        background-color: black;
+        z-index: 10;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 0; /* Initially hidden */
+        visibility: hidden; /* Prevent user interaction when hidden */
+        background:linear-gradient(to bottom right, #141426, #38386f)
+        
+
+    }
+
+    .form-container input,
+    .form-container textarea,
+    .form-container button {
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem;
+    }
+  
+    .show {
+        transform: translate(-50%,-50%) scale(1); /* Centered and scaled */
+        opacity: 1; /* Visible */
+        visibility: visible;
+    }
+
+    .form-container button.close-btn{
+        align-self: flex-end;
+        background: gray;
+        color: white;
+        border: none;
+        padding: 0.5rem , 1rem;
+        cursor: pointer;
+        border-radius: 5%;
+    }
+    .form-container button.close-btn:hover {
+        transform: scale(1.1);
+        background: darkred;
+    }
+    .submit-button{
+        background-color: aliceblue;
+    }
+    .submit-button:hover
+    {
+        background-color:rgb(211, 229, 246);
+    }
+    @media (max-width: 800px) 
+    {
+        .form-container {
+            width: 50%;
+            padding: 1rem;
+        }
+    }   
+
+    @media (max-width: 500px) {
+        .form-container {
+            width: 80%;
+            padding: 1rem;
+        }
+    }
+
+
+    #task-container
+    {
+        width: 60%;
+        position: absolute;
+        top: 30%;
+        left: 35%;
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+
+    }
+
+    .task
+    {
+        padding: .5rem;
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        background-color: gray;
+        border-radius: .3rem;
+        margin:.5rem;
+        color: #ffffff; /* White text for readability */
+        background: linear-gradient(to right, #ba4089, #a46735,rgb(61, 148, 61));
+   
+
+ 
+
+    }
+    
+
+
+
+
+    @media(max-width:700px)
+    {
+        #task-container
+        {
+            left:30%;
+            
+        }
+        .task{
+            width:60%
+        }
+    }
+
+    @media(max-width:400px)
+    {
+        #task-container
+        {
+            left: 20%;
+           
+        }
+        .task{
+            width:80%;
+        }
+
+    }
+
+</style>
+<body>
+    <main>
+        <header>
+            <div class="title">Welcome To Task Manager</div>
+            <div class="search">Search</div>
+        </header>
+
+        <!-- Form -->
+        <div class="form-container" id="taskForm">
+            <button class="close-btn" id="closeForm">X</button>
+            <label>Task</label>
+            <input  type="text" name="TaskName" placeholder="Enter your Task" oninput="onInput()" />
+
+            <label>Task Due Date</label>
+            <input  type="date" name="TaskDate" oninput="onInput()" />
+
+            <label>Description</label>
+            <textarea  rows="3" cols="25" name="TaskDescription" oninput="onInput()"></textarea>
+
+            <button class="submit-button" type="submit" onclick="onSubmit()">Submit</button>
+        </div>
+
+
+        <div id="task-container">
+
+           
+            <div class="task" onclick="openDialog()">
+                <h4 style="margin: 0;">TaskName</h4>
+                <span>Date</span>
+            </div>
+
+        </div>
+
+        <footer>
+            <button id="addTask">Add Task</button>
+        </footer>
+    </main>
+
+    <script>
+
+        
+       let obj={
+        TaskName:'',
+        TaskDate:'',
+        TaskDescription:'',
+
+       }
+
+        const addTaskButton = document.getElementById('addTask');
+        const taskForm = document.getElementById('taskForm');
+        const closeFormButton = document.getElementById('closeForm');
+
+        // Show form on button click
+        addTaskButton.addEventListener('click', () => {
+            taskForm.classList.add('show');
+        });
+
+        // Close form on button click
+        closeFormButton.addEventListener('click', () => {
+            taskForm.classList.remove('show');
+        });
+
+        // Close form when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if(
+                event.target !== addTaskButton &&
+                event.target !== taskForm &&
+                !taskForm.contains(event.target)
+            ) {
+                taskForm.classList.remove('show');
+            }
+        });
+
+       
+
+
+       function onInput()
+       {
+              obj[event.target.name]=event.target.value; 
+        
+       }
+
+
+       function onSubmit()
+       {
+            if(obj.TaskName=='')
+            {
+                alert('Task Name Required')
+            }
+            else if(obj.TaskDate=='')
+            {
+                alert('Task Date Required')
+            }
+            else
+            {
+                renderTask();
+                taskForm.classList.remove('show')
+                alert('task added')
+                ClearInput();
+            }
+
+       }
+       function renderTask()
+       {
+            let div=document.createElement('div');
+            div.classList.add('task')
+            div.innerHTML=`
+                <h4 style="margin: 0;">${obj.TaskName}</h4>
+                <span>${obj.TaskDate}</span> 
+            `;
+            
+            document.getElementById('task-container').appendChild(div);
+
+            
+
+
+       }
+       function ClearInput()
+            {
+                let tname=document.getElementsByName('TaskName');
+                let tdate=document.getElementsByName('TaskDate');
+                let tdesc=document.getElementsByName('TaskDescription');
+
+                tname[0].value='';
+                tdate[0].value='';
+                tdesc[0].value='';
+
+                obj.TaskName='';
+                obj.TaskDate='';
+                obj.TaskDescription='';
+            }
+    </script>
+</body>
+</html>

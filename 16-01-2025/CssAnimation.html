@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        height: 100vh;
+        border: 2px solid gray;
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 3em;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        /* width: 100px; */
+        height: 5em;
+        /* background-color: pink; */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        border: 2px solid gray;
+        border-radius: 10px;
+    }
+
+    #item-1, #item-2, #item-3 {
+        flex: 1 1 calc(33% - 2em); 
+    }
+
+    #item-4, #item-5 {
+        flex: 1 1 calc(50% - 2em); 
+    }
+
+    #item-6 {
+        width:450px;
+    }
+    #item-5
+    {
+        flex:calc(20%)
+    }
+    #item-5,#item-6
+    {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        grid-auto-flow: row; 
+        justify-content:space-evenly; 
+        align-items: center;
+        
+        
+
+    }
+    .sub-box{
+
+        width:8em;
+        height:1em;
+        /* background-color: pink; */
+        border: 1px solid gray;
+        border-radius: 5px;
+        background: linear-gradient(
+                90deg,
+                rgba(230, 230, 230, 1) 25%,
+                rgba(200, 200, 200, 0.625) 50%,
+                rgba(230, 230, 230, 0.853) 75%
+            );
+        animation: pulse 1s infinite;
+
+    
+       
+        
+    }
+    #item-6
+    {
+        animation:flow 3s infinite;
+    }
+    @keyframes flow{
+       
+        50%{
+            transform: translateX(50%);
+        }
+        
+    }
+
+    @keyframes pulse
+    {
+        0% {
+            opacity: 0.2;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        75% {
+            opacity: 0.75;
+        }
+        100%{
+            opacity: 1;
+        }
+
+    }
+
+    #inner-subbox{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row: 2/3 ;
+        width: 100%;
+    }
+
+
+
+</style>
+<body>
+    <section class="container">
+        <div class="box" id="item-1">Item-1</div>
+        <div class="box" id="item-2">Item-2</div>
+        <div class="box" id="item-3">Item-3</div>
+        <div class="box" id="item-4">Item-4</div>
+        <div class="box" id="item-5">
+            <div class="sub-box" ></div>
+            <div class="sub-box"></div>
+            <div class="sub-box" id="inner-subbox"></div>
+        </div>
+        <div class="box" id="item-6">
+            <div class="sub-box" ></div>
+            <div class="sub-box"></div>
+            <div class="sub-box" id="inner-subbox"></div>
+        </div>
+    </section>
+</body>
+</html>

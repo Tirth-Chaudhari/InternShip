@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  
+   
+    ul{
+        /* position: fixed; */
+        background-color: black;
+        color: white;
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        
+    }
+    .post{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    article{
+        flex:3;
+        margin:1.5rem;
+        background-color: rgba(2, 255, 255, 0.311);
+       
+    }
+    aside{
+        flex:1;
+        display: grid;
+        grid-template-columns: auto auto;
+        background-color:aliceblue;
+        margin:1.5rem;
+    }
+    .float{
+        float:left;
+        margin :1rem;
+    }
+   img{
+    width: 200px;
+    height:200px;
+    
+   }
+   span{
+    color: red;
+
+   }
+   aside > div> img
+   {
+    width:100px;
+    height: 100px;
+   }
+   @media screen and (max-width:600px)
+   {
+    aside{
+        grid-template-columns: auto auto auto;
+    }
+
+   }
+
+</style>
+<body>
+    <header>
+
+       <nav>
+            <ul>
+                <li class="navbar"><a>Home</a></li>
+                <li class="navbar"><a>Blog</a></li>
+                <li class="navbar"><a>About us</a></li>
+                <li class="navbar"><a>Our History</a></li>
+                <li class="navbar"><a>Contacts</a></li>
+            </ul>
+       </nav>
+
+    </header>
+
+    <main>
+        <div class="post">
+            <article>
+                <span>An Exciting Blog Post</span>
+                <div class="float"><img src="https://img.freepik.com/free-vector/colorful-kite-flying-blue-sky_1308-29925.jpg?semt=ais_hybrid"></div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut cumque recusandae veniam repudiandae, voluptatibus asperiores, beatae aperiam unde quas amet aliquam ut ullam voluptatum debitis. Sequi voluptate a blanditiis aut.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, cumque.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi officia minima sequi aspernatur ipsam reprehenderit ab hic modi nihil dolore vel atque, delectus temporibus corporis fuga magnam rerum! Ad deleniti mollitia sint aspernatur tenetur tempora adipisci animi porro reprehenderit dolor.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut cumque recusandae veniam repudiandae, voluptatibus asperiores, beatae aperiam unde quas amet aliquam ut ullam voluptatum debitis. Sequi voluptate a blanditiis aut.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, cumque.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi officia minima sequi aspernatur ipsam reprehenderit ab hic modi nihil dolore vel atque, delectus temporibus corporis fuga magnam rerum! Ad deleniti mollitia sint aspernatur tenetur tempora adipisci animi porro reprehenderit dolor.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?</p>
+            </article>
+            <aside>
+                <div class="float"><img src="https://img.freepik.com/free-vector/colorful-kite-flying-blue-sky_1308-29925.jpg?semt=ais_hybrid"></div>
+                <div class="float"><img src="https://i.pinimg.com/474x/98/39/69/983969f813c3b54c7c2db64ca4669b68.jpg"></div>
+                <div class="float"><img src="https://thumbs.dreamstime.com/b/blue-kite-flying-beautiful-sky-clouds-34108813.jpg"></div>
+                <div class="float"><img src="https://img.freepik.com/free-vector/colorful-kite-flying-blue-sky_1308-29925.jpg?semt=ais_hybrid"></div>
+                <div class="float"><img src="https://t3.ftcdn.net/jpg/00/84/62/52/360_F_84625239_ybiXMp0XUru7XuaasIYHucxIJ45n1LCq.jpg"></div>
+                <div class="float"><img src="https://img.freepik.com/free-vector/colorful-kite-flying-blue-sky_1308-29925.jpg?semt=ais_hybrid"></div>
+                <div class="float"><img src="https://images.unsplash.com/photo-1641792112180-998e4a9b9843?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2l0ZSUyMGZlc3RpdmFsfGVufDB8fDB8fHww"></div>
+
+            </aside>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="ele">
+        <div class="ele-content">Element</div>
+
+    </div>
+
+
+    <table id="table">
+        <tr>    
+          <td>Your age:</td>
+      
+          <td>
+            <label>
+              <input type="radio" name="age" value="young" checked> less than 18
+            </label>
+            <label>
+              <input type="radio" name="age" value="mature"> from 18 to 50
+            </label>
+            <label>
+              <input type="checkbox" name="age" value="senior"> more than 60
+            </label>
+          </td>
+        </tr>
+      </table>
+
+
+
+      
+   
+
+</body>
+
+<script>
+
+    ele.style.background='red'
+
+
+    let inputsArray=document.getElementsByTagName('input');
+
+    for(let obj of inputsArray)
+{
+        console.log(obj);
+        
+}
+    let div=document.querySelector('div');
+
+    div.outerHTML+='<p> this is outer html content</p>'
+    console.log(div.innerHTML);
+
+
+    let  typearr=document.querySelectorAll('input')
+
+    for(let data of typearr)
+    {
+        console.log(data.getAttribute('type'));
+        
+    }
+        
+
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #container
+    {
+        margin-top: 2rem;
+        width: 250px;
+        height: 200px;
+        border:2px solid gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+    }
+</style>
+<script>
+
+    function createMessage()
+    {
+            let coords=container.getBoundingClientRect();
+            
+            
+            let div=document.createElement('div');
+            div.style='position:fixed'
+            div.style.top=coords.top+'px';
+            div.style.left=coords.left+'px';
+            div.innerHTML="<h4>You Clicked</h4>"
+            div.style.height='10px'
+            document.body.appendChild(div);
+            
+    }   
+
+
+</script>
+<body>
+    
+
+
+    <div id="container" onclick="createMessage()">
+
+        Click Here to show message
+
+    </div>
+
+
+
+</body>
+</html>

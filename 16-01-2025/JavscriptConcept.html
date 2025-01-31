@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    
+    
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .Add{
+        position: absolute;
+        bottom: 1%;
+        right:2%;
+        border-radius: 10px;
+        background-color: rgba(194, 194, 37, 0.699);
+    }
+    .Add:hover{
+        background-color: rgba(194, 194, 37, 0.348);
+    }
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        border:2px solid gray;
+        height:400px;
+        justify-content: space-between;
+    }
+    .box{
+        width:150px;
+        height:80px;
+        background-color: gray;
+    }
+    
+</style>
+
+<script>
+    function AddFunction()
+    {
+        const SecElement=document.getElementsByClassName('container')[0]
+        const divElement=document.createElement('div')
+        divElement.classList.add('box');
+
+        const btnElement=document.createElement('b utton')
+        btnElement.innerHTML='Change Color'
+        btnElement.classList.add('btn')
+        btnElement.onclick=Change_Color
+        
+        divElement.appendChild(btnElement)
+        SecElement.appendChild(divElement)
+
+
+        
+
+
+
+    }
+
+    function Change_Color() {
+        const boxElement = this.parentElement; 
+        const randomColor = getRandomColor(); 
+        boxElement.style.backgroundColor = randomColor; 
+    }
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+
+
+</script>
+
+<body>
+
+
+
+    <section class="container">
+       
+
+    </section>
+
+    <button class="Add" onClick="AddFunction()" >+</button>
+
+    
+</body>
+</html>

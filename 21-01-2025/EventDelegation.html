@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        gap:1rem;
+    }
+    .card{
+        width:200px;
+        height:200px;
+        background-color:rgba(0, 255, 255, 0.615)
+    }
+</style>
+<script>
+    // let box;
+    // function PerformEvent()
+    // {
+    //     if(box)
+    //      {
+    //     box.style.background=''
+    //      }
+    
+    //     box=event.target;
+    //     box.style.background='red'
+    // }
+
+    function ShowCardNumber()
+    {
+        alert(event.target.innerHTML);
+    }
+
+    function showContainer()
+    {
+        alert(container)
+    }
+</script>
+<body>
+
+    <!-- <div class="container" onclick="PerformEvent()">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+
+    </div> -->
+    <div class="container" onclick="alert('container')">
+        <div class="box"  onclick="alert('box'),event.stopPropagation()" >
+        <div class="card" onclick="ShowCardNumber()">1</div>
+        <div class="card" onclick="ShowCardNumber()">2</div>
+        <div class="card" onclick="ShowCardNumber()">3</div>
+        <div class="card" onclick="ShowCardNumber()">4</div>
+        <div class="card" onclick="ShowCardNumber()">5</div>
+        <div class="card" onclick="ShowCardNumber()">6</div>
+      </div>
+    </div>
+</body>
+</html>
