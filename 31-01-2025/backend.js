@@ -1,7 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
-
+require('dotenv').config();
 const app = express();
     
 // ✅ Allow multiple origins
@@ -15,7 +15,6 @@ app.use(cors({
 app.use(express.json());
 
 const GEO_API_URL = "http://api.geonames.org/searchJSON";
-const USERNAME = "random753_chaudhari"; // Replace with your actual username
 
 app.get("/api/city", async (req, res) => {
     try {
@@ -24,13 +23,13 @@ app.get("/api/city", async (req, res) => {
         if (!q) {
             return res.status(400).json({ error: "Query parameter is required" });
         }
-
+        
         // Fetch city suggestions from GeoNames API
         const response = await axios.get(GEO_API_URL, {
             params: {
                 q,
                 maxRows: 3,
-                username: USERNAME
+                username: process.env.USER_ID
             }
         });
 
@@ -47,4 +46,5 @@ app.get("/api/city", async (req, res) => {
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+    
 });
