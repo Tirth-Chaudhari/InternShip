@@ -401,7 +401,7 @@ nav{
 
 </body>
 </html>
-
+<script src="config.js"></script>
 <script>
          
     const loader=document.querySelector('.loader');
@@ -437,7 +437,7 @@ nav{
     async function showPosition(position) {
         const lon=position.coords.longitude;
         const lat=position.coords.latitude;
-        const data=await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=d3a23241e7c3903a961d24d2dcf205a3`);
+        const data=await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${window.env.API_KEY}`);
         const weatherData = await data.json();
         setWeatherData(weatherData)
         stopLoader();
@@ -463,8 +463,8 @@ nav{
         {
         var city = document.querySelector('.search input').value;
         try{
- 
-            const data=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d3a23241e7c3903a961d24d2dcf205a3`);
+            
+            const data=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${window.env.API_KEY}`);
             const weatherData = await data.json();
              failure.style.visibility='hidden'
             setWeatherData(weatherData);
@@ -563,11 +563,11 @@ nav{
  
     }
 
-    async function debounce(event)
-    {
-        const query=event.target.value;
-        clearTimeout(timer);    
-        timer=setTimeout(async ()=>{
+        async function debounce(event)
+        {
+            const query=event.target.value;
+            clearTimeout(timer);   
+            timer=setTimeout(async ()=>{
             try {
               const response =await fetch(`http://localhost:3000/api/city?q=${query}`, {
                 method: "GET",
@@ -618,14 +618,5 @@ nav{
 
 </script>
 
-
-<!-- 
-try with promises
-add kelvin celcius option
-add city filteration in search bar
-add loader  
-add error handling 
-navigator.geolocation.getCurrentPosition(showPosition)
-history in weather -->
 
 
