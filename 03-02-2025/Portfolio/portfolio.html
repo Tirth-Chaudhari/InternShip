@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body
+    {
+        background-color: #161B22;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* margin:0 auto */
+    }
+    main{
+        width:85%;
+        /* margin-top:2%; */
+    }
+    @media (max-width:1000px) {
+       main{ width: 100%;
+       }
+      
+    }
+    header{
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: .9rem;
+        height: 7rem;
+        align-items: center;
+
+    }
+   
+    nav{
+        display: flex;
+        list-style: none;
+        justify-content: space-around;
+        background-color: #23262e;
+        /* width:25%; */
+        width:300px;
+        padding:1rem 0.9rem;
+        border-radius: 1.9rem;
+        filter: drop-shadow(0px 0px 50px #f0f6fc);
+    }
+    @media (max-width:500px) {
+        nav {
+            /* width:200px; */
+        };
+    }
+
+    .logo_funny
+    {
+        width:80px;
+        display: flex;
+        align-items: center;
+        
+    }
+    .logo_funny img
+    {
+        width:100%;
+        filter: drop-shadow(0px 0px 50px #fafbfb);
+
+
+    }
+    nav:hover{
+        cursor: pointer;
+    }
+    .logo_funny img:hover
+    {
+        cursor: pointer;
+    }
+    .contact{
+        filter: drop-shadow(0px 0px 50px #fafbfb);
+
+            font-size: 1.2rem;
+     }
+     .contact:hover{
+        cursor: pointer;
+     }
+  
+</style>
+<body>
+        <main>
+            <header>
+                <div class="logo_funny"><img src="assets/logo-funny.png" alt="nothing"/></div>
+                <nav>
+                    
+                        <li>All</li>
+                        <li>About</li>
+                        <li>Project</li>
+                        <li>Achievments</li>
+                    
+                </nav>
+                <div class="contact">
+                    contact
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M48 270.9l118.9 44.6L181.7 464 256 360l104 104L464 48 48 270.9zm294.9 126L260 313.4 374.9 152 193.6 289.8 124.9 265l291-156.2-73 288.1z"></path></svg>
+                </div>
+            </header>
+
+            <div>
+
+
+                
+            </div>
+
+
+
+        </main>
+</body>
+</html>
+
+<script>
+
+</script>
