@@ -346,6 +346,74 @@
         }
         
     }
+    #About
+    {
+        margin-top:4rem;
+         color: white;
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         font-size: 1.1rem;
+    }
+    #intro-start
+    {
+        font-size: 3rem;
+        text-align: center;
+        font-family:cursive;
+    }
+
+    #about-self
+    {
+        display: flex;
+        gap:5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        strong{
+            color:rgb(169, 48, 48); 
+        }
+    }
+    #about-content
+    {
+        width: 55%;
+    }
+   
+    #about-image
+    {
+        margin-top: 4rem;
+    }
+    @media (max-width:1000px) {
+        #about-content
+        {
+            width: 90%;
+        }  
+        #about-image
+        {
+            margin-top:0rem;
+        }
+        
+    }
+    #about-image img
+    {
+
+        width:20rem;
+        border-radius: 1rem;
+        animation: floatImage 2s ease-in-out infinite ;
+      
+        
+    }
+   @keyframes   floatImage{
+        0%{
+            transform: translateY(-10px);
+        }
+        50%{
+            transform: translateY(10px);
+        }
+        100%{
+            transform: translateY(-10px);
+        }
+    }
+
+    
+
+   
 </style>
 <body>
         <main>
@@ -444,8 +512,46 @@
                 <div class="box" id="linkedin-content"><img src="assets/linkedin.png"/></div>
             </div>
 
-
-
+            <div id="About">
+                <div id="intro-start">About Me</div>
+                <div id="about-self">
+                    <div id="about-content">
+                        <div id="intro">
+                            <h2>Hey, I'm Tirth Chaudhari 👋</h2>
+                            <!-- <p>Welcome to my world, where technology meets problem-solving and innovation 🚀.</p> -->
+                        </div>
+                        
+                        <div id="about">
+                            <p>I'm from <strong>Mehsana, Gujarat</strong>, and currently a <strong>final-year Information Technology student at Dharmsinh Desai University, Nadiad</strong> 🎓.</p>
+                            <p>My passion lies in leveraging technology to solve real-world problems and create impactful solutions.</p>
+                        </div>
+                        
+                        <div id="skills">
+                            <h3>What I Do 💻</h3>
+                            <p>As a <strong>software developer and tech enthusiast</strong>, I specialize in:</p>
+                            <ul>
+                                <li>Full-stack development with <strong>ReactJS, Angular</strong> ⚛️</li>
+                                <li>Building scalable backend solutions using <strong>Spring Boot and Node.js</strong> ☕</li>
+                                <li>Containerization & DevOps with <strong>Docker & Kubernetes</strong> 🐳</li>
+                              
+                            </ul>
+                        </div>
+                        
+                        <div id="vision">
+                            <h3>My Vision 🌍</h3>
+                            <p>I believe that <strong>technology has the power to transform lives</strong>, and I'm always eager to explore new innovations, take on challenges, and contribute to meaningful projects that make a difference.</p>
+                        </div>
+                        
+                        <div id="connect">
+                            <p>Let’s connect and build something amazing together! 🔧💡</p>
+                        </div>
+                        
+                    </div>
+                    <div id="about-image">
+                        <img src="assets/tirth.jpeg" alt="tirth"/>
+                    </div>
+                </div>
+            </div>
         </main>
 </body>
 </html>
