@@ -15,7 +15,7 @@
         /* margin:0 auto */
     }
     main{
-        width:85%;
+        width:75%;
 
     }
     @media (max-width:1000px) {
@@ -81,31 +81,48 @@
         cursor: pointer;
      }
      
-     .content {
+    .content {
+    margin-top:2rem;
     display: grid;
     grid-template-columns: .5fr 1fr .5fr; /* 3 equal columns */
     grid-template-rows: repeat(4, 1fr); /* 4 equal-height rows */
-    gap: 10px; /* Adjust spacing between grid items */
+    gap: 1rem; /* Adjust spacing between grid items */
     height: 100vh; /* Ensuring it takes full height */
     color: white;
-}
+    }
+   
 
 .box {
 
-    /* padding: 20px; */
-    border: 1px solid #ccc;
-    text-align: center;
+    background-color: #121212;
+    color: #F0F6FC;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center; 
+     justify-content: center; 
+     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+     cursor: pointer;
+
+}
+.box img{
+    width: 5rem;
+    height:5rem;
+    transition: transform .2s ease;
+
 }
 
 /* First Column */
 #resume-content ,
 #github-content ,
-#linkedin-content ,
-#other-content 
+#linkedin-content 
 {
     grid-column: 1 ;
     /* width: 60%; */
 
+}
+
+#linkedin-content{
+ grid-row: 3/5 ;
 }
 
 /* Second Column */
@@ -116,7 +133,219 @@
 #skills-content { grid-column: 3; grid-row: 1 / 5; } /* Spans all 4 rows */
 
 
-     
+
+
+
+#resume
+{
+    visibility: hidden;
+
+}
+
+#resume-content img
+{
+    
+    visibility: visible;
+}
+.resume-appear
+{
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: .2rem;
+
+}
+#resume:hover
+{
+    visibility: visible; 
+}
+#github-content 
+{
+   background-color: white;
+}
+#linkedin-content{
+    background-color: #0a66c2;
+}
+.box img:hover
+{
+    transform: scale(1.1);
+}
+#personal-content
+{   
+    flex-direction: column;
+
+    
+}
+#personal-picture
+{
+    margin-top:2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+       
+}  
+#personal-picture img{
+    width:8rem;
+    height:8rem;
+}
+#personal-content h3
+{
+    margin: 0rem;
+    margin-top:.3rem
+}
+#personal-picture button
+{
+    color: #f0f6fc;
+    height:2rem;
+    box-shadow: 0px 2px 4px 0px #a6c8c8;
+    background-color: #121212;
+    transition: transform .2s ease
+}
+
+#personal-content button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#personal-content:hover
+{
+    span{
+        color: rgb(169, 48, 48);
+    }
+}
+#personal-info{
+
+    margin:0rem 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    
+}
+#project-content
+{
+    flex-direction: column;
+    justify-content: flex-start;
+}
+#project-content img
+{
+    width:8rem;
+    height:10rem;
+
+}
+#project-picture
+{
+    margin-top:2rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    button
+    {
+        color: #f0f6fc;
+        height:2rem;
+        box-shadow: 0px 2px 4px 0px #a6c8c8;
+        background-color: #121212;
+        transition: transform .2s ease;
+        cursor:pointer
+    }
+}
+#project-picture button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#project-info
+{
+    margin:0 1rem;
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#project-content:hover{
+    span{
+        color: rgb(169, 48, 48);
+    }
+}
+
+#skills-content
+{
+    flex-direction: column;
+}
+#skill-set
+{
+    font-size: 1.8rem;
+    font-family: "Crimson Text", "DM Serif Display", Georgia, serif;
+    transition: transform .3s;
+}
+#skill-set:hover{
+    color:rgb(169, 48, 48);
+    transform: scale(1.2);
+}
+.skill-info
+{
+    margin-top: 1rem;
+    width:100%;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.skill-info li
+{
+    list-style: none;
+
+}
+.skill-info img{
+    width:3rem;
+    height:3rem;
+}
+#skill-tools
+{
+    margin-top: 4rem;
+    font-size: 1.8rem;
+    font-family: "Crimson Text", "DM Serif Display", Georgia, serif;
+    transition: transform .3s;
+}
+#skill-tools:hover
+{
+    color:rgb(169, 48, 48);
+    transform: scale(1.2);
+}
+#tools img
+{
+    width:4rem;
+    height: 4rem;
+}
+
+@media (max-width:800px){
+       .content
+       {
+         grid-template-columns: 1fr 1fr;
+         grid-template-rows: repeat(7,1fr);
+         height: 200vh;
+       }  
+            
+        #resume-content ,
+        #github-content ,
+        #linkedin-content 
+        {
+            grid-column: 1 ;
+
+        }
+
+        #linkedin-content{
+          grid-row: 5/6;
+        }
+
+        #personal-content { grid-column: 1/3; grid-row: 1/3} 
+        #project-content { grid-column: 1/3; grid-row: 6/8} 
+
+        #skills-content { grid-column: 2; grid-row: 3 / 6; } 
+    
+    }
+    @media (max-width:450px) {
+        .content{
+            height: 300vh;
+        }
+        
+    }
 </style>
 <body>
         <main>
@@ -138,17 +367,81 @@
 
             <div class="content">
                 <div class="box" id="resume-content">
-                    resume-content
-                    <!-- <img src="assets/resume.png"/> -->
+                    <div id="resume">
+                         <div class="resume-appear">Resume</div>
+                         <img src="assets/resume.png" alt="resume"/>
+                     </div>  
                 </div>
-                <div class="box" id="personal-content">personal_content</div>
-                <div class="box" id="skills-content">skills-content</div>
-                <div class="box" id="github-content">github-content</div>
-                <div class="box" id="project-content">project-content</div>
-                <div class="box" id="linkedin-content">linkedin_content</div>
-                <div id="other-content" class="box">other-content</div>
-
-
+                <div class="box" id="personal-content">
+                    <div id="personal-picture">
+                        <img src="assets/personal.png" alt="picture"/><button> Know More -></button>
+                    </div>
+                    <h3>Welcome to <span>Tirth Chaudhari's</span> Portfolio! 🚀🎓 </h3>
+                    <div id="personal-info"><p>As a passionate <span>Software Developer</span> and final-year <span>B.Tech</span> student, I specialize in full-stack development using the <span>MERN stack</span> 🌱. I have a strong grasp of <span>React</span> ⚛️ and <span>Angular</span> 🅰️ for building dynamic UIs. I am a beginner in <span>Spring Boot</span> ☕ and have recently learned containerization with <span>Docker</span> 🐳 and Kubernetes ☁️. Constantly exploring new technologies, I aim to build scalable and efficient solutions.</p></div>
+                </div>
+                <div class="box" id="skills-content">
+                    <div id="skill-set">Skills</div>
+                    <div class="skill-info">
+                            <li>
+                            <img src="assets/html.png"/>
+                            </li>
+                            <li>
+                                <img src="assets/css.png"/>
+                             </li>
+                            <li>
+                               <img src="assets/cpp.png"/>
+                            </li>
+                            
+                             <li>
+                                <img src="assets/javascript.png"/>
+                             </li>
+                             <li>
+                                <img src="assets/react.png"/>
+                             </li>
+                             <li>
+                                <img src="assets/java.png"/>
+                             </li>
+                             <li>
+                                <img src="assets/springboot.png"/>
+                             </li>
+                             <li>
+                                <img src="assets/sql.png"/>
+                             </li>
+                             <li>
+                                <img src="assets/node.png"/>
+                             </li>
+                    </div>
+                    <div id="skill-tools">Tools</div>
+                    <div class="skill-info" id="tools">
+                        <li>
+                            <img src="assets/git.png"/>
+                         </li>
+                         <li>
+                            <img src="assets/github.png"/>
+                         </li>
+                         <li>
+                            <img src="assets/vscode.png"/>
+                         </li>
+                         <li>
+                            <img src="assets/postman.png"/>
+                         </li>
+                         <li>
+                            <img src="assets/docker.png"/>
+                         </li>
+                         <li>
+                            <img src="assets/kubernetes.png"/>
+                         </li>
+                    </div>
+                </div>
+                <div class="box" id="github-content"><img src="assets/github.png"/></div>
+                <div class="box" id="project-content">
+                    <div id="project-picture">
+                        <img src="assets/project.png" alt="project"/>
+                        <button>Load More -></button>
+                    </div>
+                    <div id="project-info"><p>I have developed impactful projects like an <span>Expense Tracker</span> 💰 using the <span>MERN stack</span> 🌱, and worked on the <span>Farmer Bazaar Backend</span> 🛒 with Node.js, also implementing features in <span>Angular</span> ⚙️. I built a <span>Cric Informer</span> 🏏 using <span>React</span> ⚛️ and <span>Spring Boot</span> to display live scores. These projects showcase my expertise in full-stack development, problem-solving, and integrating various technologies.</p></div>
+                </div>
+                <div class="box" id="linkedin-content"><img src="assets/linkedin.png"/></div>
             </div>
 
 
