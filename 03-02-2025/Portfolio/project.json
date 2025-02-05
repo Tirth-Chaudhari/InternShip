@@ -1,0 +1,28 @@
+
+
+[
+        {
+        "id":"expense-tracker",
+        "name":"Expense Tracker",
+        "Description":"Effortless expense tracking and management. 💵📉",
+        "img":"assets/expense-tracker.png",
+        "info":"Expense Tracker is a powerful and user-friendly application designed to help individuals track and manage their daily expenses efficiently. Built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, this full-stack web application enables users to log, categorize, and analyze their expenses effortlessly. With intuitive features like real-time analytics, budget tracking, and secure authentication, Expense Tracker simplifies financial management for users.",
+        "stack":[
+            "✅ React.js – Used for building an interactive and responsive frontend, ensuring seamless user experience for tracking and visualizing expense",
+            "✅ Node.js & Express.js – Backend services for handling transactions, user authentication, and business logic efficiently.",                  
+            "✅ MongoDB – NoSQL database for securely storing user expenses, categories, and budgets, ensuring scalability and performance."
+        ],
+        "features":[
+            "🔹 Add & Categorize Expenses – Users can log expenses with relevant categories like Food, Transport, Entertainment, etc.",
+            "🔹 Real-time Expense Insights – View detailed reports and visual graphs for better financial planning.",
+            "🔹 Share Expenses – Users can split and share expenses within a group or individually with friends, making it easier to manage shared costs.",
+            "🔹 Daily Notes – Allows users to add personal notes alongside expenses, helping them keep track of spending reasons or financial goals."
+        ],
+        "questions":[
+            "💡 Financial Awareness – Helps users gain control over their spending habits.",
+            "💡 User-Friendly Interface – Clean, minimalistic design for smooth expense logging."
+        ]
+        
+    }
+    
+]
