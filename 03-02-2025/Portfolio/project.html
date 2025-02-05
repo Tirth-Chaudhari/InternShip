@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body
+    {
+        background-color: #161B22;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    main{
+        width:75%;
+
+    }
+    @media (max-width:1000px) {
+       main{ width: 100%;
+       }
+      
+    }
+    header{
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        font-family: "Crimson Text", "DM Serif Display", Georgia, serif;
+        font-size: .9rem;
+        height: 7rem;
+        align-items: center;
+
+    }
+   
+    
+
+    .logo_funny
+    {
+        width:80px;
+        display: flex;
+        align-items: center;
+        
+    }
+    .logo_funny img
+    {
+        width:100%;
+        filter: drop-shadow(0px 0px 50px #fafbfb);
+
+
+    }
+    nav:hover{
+        cursor: pointer;
+    }
+    .logo_funny img:hover
+    {
+        cursor: pointer;
+    }
+    .contact{
+        filter: drop-shadow(0px 0px 50px #fafbfb);
+
+            font-size: 1.2rem;
+     }
+     .contact:hover{
+        cursor: pointer;
+     }
+     #project-name
+     {
+        filter: drop-shadow(0px 0px 50px #fafbfb);
+        font-family: "Crimson Text", "DM Serif Display", Georgia, serif; 
+     }
+    
+     
+
+    #cartoon-position 
+    {
+        filter: drop-shadow(0px 0px 50px #a8aaaa);
+        position: fixed;
+        top:10%;
+        right:5%;
+
+    }
+
+    #cartoon-position img
+    {
+        animation: floatImage 4s ease-in-out infinite ;
+
+
+    }
+      
+   @keyframes   floatImage{
+        0%{
+            transform: translateY(-15px);
+        }
+        50%{
+            transform: translateY(15px);
+                transform: rotate3d(0,1,0,180deg)
+        }
+        100%{
+            transform: translateY(-15px);
+        }
+    }
+    #content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4rem;
+        font-family:Arial, Helvetica, sans-serif    
+
+    }
+    #project-image img
+    {
+        border-radius: 1rem;
+        width:100%;
+        height: 20rem;
+        cursor:pointer;
+        transition: transform 3s;
+    }
+    
+    #project-image img:hover
+    {
+        transform: scale(1.1);
+    }
+
+    #project-content
+    {
+        width:75%;
+        color: white;
+        font-size: 1.2rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+        margin-top:2rem;
+        li{
+            list-style: none;
+            margin-left:3rem;
+            margin-top:1.5rem
+
+        }
+    }
+
+    
+   
+
+
+</style>
+
+
+<body>
+    
+    <main>
+        <header>
+            <div class="logo_funny"><img src="assets/logo-funny.png" alt="nothing"/></div>
+            <div id="project-name">
+                <!-- <h1>Expense Tracker</h1>
+                <span>"Effortless expense tracking and management." 💵📉</span> -->
+            </div>
+            <div class="contact">
+                contact
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M48 270.9l118.9 44.6L181.7 464 256 360l104 104L464 48 48 270.9zm294.9 126L260 313.4 374.9 152 193.6 289.8 124.9 265l291-156.2-73 288.1z"></path></svg>
+            </div>
+        </header>
+
+        <div id="content">
+
+            <div id="project-image">
+                <!-- <img src="assets/expense-tracker.png"> -->
+            </div>
+            <div id="project-content">
+                <div id="project-para">
+                    <!-- <p>
+                        Expense Tracker is a powerful and user-friendly application designed to help individuals track and manage their daily expenses efficiently. Built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, this full-stack web application enables users to log, categorize, and analyze their expenses effortlessly. With intuitive features like real-time analytics, budget tracking, and secure authentication, Expense Tracker simplifies financial management for users.
+                    </p> -->
+                </div>
+                <div id="project-tech">
+                    <h3>Technology Stack</h3>
+                         <!-- <li>
+                        ✅ React.js – Used for building an interactive and responsive frontend, ensuring seamless user experience for tracking and visualizing expenses.
+                                            </li>
+                                            <li>
+                        ✅ Node.js & Express.js – Backend services for handling transactions, user authentication, and business logic efficiently.
+                                            </li>
+                                            <li>
+                        ✅ MongoDB – NoSQL database for securely storing user expenses, categories, and budgets, ensuring scalability and performance.
+                                            </li> -->
+                </div>
+
+                <div id="project-feature">
+                    <h3>Core Features</h3>
+                    <!-- <li>
+                    🔹 Add & Categorize Expenses – Users can log expenses with relevant categories like Food, Transport, Entertainment, etc.
+                    </li>
+                    <li>
+                    🔹 Real-time Expense Insights – View detailed reports and visual graphs for better financial planning.
+                    </li>
+                    <li>
+                    🔹 Share Expenses – Users can split and share expenses within a group or individually with friends, making it easier to manage shared costs.
+                    </li>
+                    <li>
+                    🔹 Daily Notes – Allows users to add personal notes alongside expenses, helping them keep track of spending reasons or financial goals.
+                    </li>     -->
+                </div>
+
+                <div id="project-question">
+                    <h3>
+                    Why Expense Tracker?
+                    </h3>
+                    <!-- <li>
+💡 Financial Awareness – Helps users gain control over their spending habits.
+                    </li>
+                    <li>
+💡 User-Friendly Interface – Clean, minimalistic design for smooth expense logging.
+                    </li> -->
+                </div>
+
+                
+</div>
+            
+
+        </div>
+        <div id="project-cartoon">
+            <div id="cartoon-position">
+                <img src="assets/project.png" alt="Project Image" width="200">
+            </div>
+        </div>
+
+
+
+       
+
+    </main>
+
+
+</body>
+</html>
+
+<script src="project.js">
+
+   
+    
+</script>
