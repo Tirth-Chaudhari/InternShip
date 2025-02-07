@@ -23,6 +23,63 @@
             "💡 User-Friendly Interface – Clean, minimalistic design for smooth expense logging."
         ]
         
+    },
+    {
+        "id": "cric-informer",
+        "name": "Cric Informer",
+        "Description": "Real-time cricket updates and detailed match insights. 🏏📊",
+        "img": "assets/cric-informer.png",
+        "info": "Cric Informer is a comprehensive cricket information platform that provides real-time match updates, detailed scorecards, squad details, rankings, and upcoming fixtures. Built using React, Spring Boot, and SQL, the application ensures that cricket fans stay updated with live scores, player stats, and historical match data. Data is scrapped from reliable cricket websites using Jsoup to ensure accuracy and real-time updates.",
+        "stack": [
+            "✅ React.js – Interactive and responsive UI for displaying live match updates and rankings.",
+            "✅ Spring Boot – Backend framework for handling API requests and processing cricket data.",
+            "✅ SQL – Database for storing historical match data, player stats, and rankings securely.",
+            "✅ Jsoup – Used for web scraping to fetch real-time cricket scores, squads, and rankings from reliable cricket websites."
+        ],
+        "features": [
+            "🔹 Live Matches – Displays real-time scores, player stats, and full match scorecards.",
+            "🔹 Full Scorecard – Detailed batting and bowling statistics, including runs, overs, wickets, and economy rate.",
+            "🔹 Match Squad – Lists the playing XI and squad details for both teams.",
+            "🔹 Match History – Provides a historical overview of past matches with detailed scorecards.",
+            "🔹 Upcoming Matches – Lists all scheduled matches with team details and venues.",
+            "🔹 Rankings – Displays team and player rankings in categories like batting, bowling, and all-rounders.",
+            "🔹 Web Scraping – Fetches the latest cricket data from external sources using Jsoup.",
+            "🔹 User-Friendly Interface – Clean design with easy navigation for cricket fans."
+        ],
+        "questions": [
+            "💡 Stay Updated – Get real-time match scores and team rankings.",
+            "💡 Detailed Stats – Full scorecards, player performances, and match history all in one place.",
+            "💡 Easy Access – Quick access to upcoming fixtures and player rankings."
+        ]
+    },
+    {
+        
+            "id": "farmer-bazaar",
+            "name": "Farmer Bazaar",
+            "Description": "A seamless online auction platform for farmers  🌾💰",
+            "img": "assets/farmer-bazaar.png",
+            "info": "Farmer Bazaar is a MEAN-based online auction platform that connects farmers and bidders. The platform allows farmers to create auctions for their crops, while bidders can place competitive bids. The highest bidder wins the auction. With user authentication, OTP-based email verification, and secure bidding mechanisms, the application ensures a transparent and secure bidding experience.",
+            "stack": [
+                "✅ Angular – Frontend framework for building a dynamic and responsive user interface.",
+                "✅ Node.js & Express.js – Backend framework for handling user authentication, auctions, and bidding logic.",
+                "✅ MongoDB – NoSQL database for storing user information, auctions, and bid history.",
+                "✅ Nodemailer – Used for sending OTP-based email verification during user registration and password recovery."
+            ],
+            "features": [
+                "🔹 User Registration & Login – Secure user authentication with token verification.",
+                "🔹 Email OTP Verification – Users receive an OTP via email for account verification.",
+                "🔹 Forgot Password – Allows users to reset their password using email verification.",
+                "🔹 Auction Management – Farmers can create and manage auctions for their crops.",
+                "🔹 Bidding System – Bidders can place bids, and the highest bidder wins the auction.",
+                "🔹 Token-Based Authentication – Secure user authentication using JWT.",
+                "🔹 Responsive UI – Angular-powered frontend for seamless navigation and experience."
+            ],
+            "questions": [
+                "💡 Secure Platform – Ensures safe bidding with OTP verification and authentication.",
+                "💡 Transparent Bidding – Farmers get the best price for their crops through an open auction system.",
+                "💡 Easy to Use – User-friendly interface for both farmers and bidders."
+            ]
     }
+    
     
 ]
