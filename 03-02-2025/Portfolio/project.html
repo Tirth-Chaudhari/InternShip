@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,26 @@
 </head>
 
 <style>
-    body
-    {
+    body {
         background-color: #161B22;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    main{
-        width:75%;
+
+    main {
+        width: 75%;
 
     }
+
     @media (max-width:1000px) {
-       main{ width: 100%;
-       }
-      
+        main {
+            width: 100%;
+        }
+
     }
-    header{
+
+    header {
         color: white;
         display: flex;
         justify-content: space-around;
@@ -33,134 +37,165 @@
         align-items: center;
 
     }
-   
-    
 
-    .logo_funny
-    {
-        width:80px;
+
+
+    .logo_funny {
+        width: 80px;
         display: flex;
         align-items: center;
-        
+
     }
-    .logo_funny img
-    {
-        width:100%;
+
+    .logo_funny img {
+        width: 100%;
         filter: drop-shadow(0px 0px 50px #fafbfb);
 
 
     }
-    nav:hover{
+
+    nav:hover {
         cursor: pointer;
     }
-    .logo_funny img:hover
-    {
+
+    .logo_funny img:hover {
         cursor: pointer;
     }
-    .contact{
+
+    .contact {
         filter: drop-shadow(0px 0px 50px #fafbfb);
 
-            font-size: 1.2rem;
-     }
-     .contact:hover{
+        font-size: 1.2rem;
+    }
+
+    .contact:hover {
         cursor: pointer;
-     }
-     #project-name
-     {
-        filter: drop-shadow(0px 0px 50px #fafbfb);
-        font-family: "Crimson Text", "DM Serif Display", Georgia, serif; 
-     }
-    
-     
+    }
 
-    #cartoon-position 
-    {
+    #project-name {
+        filter: drop-shadow(0px 0px 50px #fafbfb);
+        font-family: "Crimson Text", "DM Serif Display", Georgia, serif;
+
+    }
+
+    #project-name h1 {
+        margin: 0;
+        margin-bottom: .4rem;
+    }
+
+
+
+    #cartoon-position {
         filter: drop-shadow(0px 0px 50px #a8aaaa);
         position: fixed;
-        top:10%;
-        right:5%;
+        top: 10%;
+        right: 3%;
 
     }
 
-    #cartoon-position img
-    {
-        animation: floatImage 4s ease-in-out infinite ;
+    #cartoon-position img {
+        animation: floatImage 4s ease-in-out infinite;
 
 
     }
-      
-   @keyframes   floatImage{
-        0%{
+
+    @keyframes floatImage {
+        0% {
             transform: translateY(-15px);
         }
-        50%{
+
+        50% {
             transform: translateY(15px);
-                transform: rotate3d(0,1,0,180deg)
+            transform: rotate3d(0, 1, 0, 180deg)
         }
-        100%{
+
+        100% {
             transform: translateY(-15px);
         }
     }
-    #content
-    {
+
+    #content {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 4rem;
-        font-family:Arial, Helvetica, sans-serif    
-
+        font-family: Arial, Helvetica, sans-serif
     }
-    #project-image img
-    {
+
+    #project-image img {
         border-radius: 1rem;
-        width:100%;
+        width: 100%;
         height: 20rem;
-        cursor:pointer;
+        cursor: pointer;
         transition: transform 3s;
     }
-    
-    #project-image img:hover
-    {
+
+    #project-image img:hover {
         transform: scale(1.1);
     }
 
-    #project-content
-    {
-        width:75%;
+    #project-content {
+        width: 75%;
         color: white;
         font-size: 1.2rem;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        
-        margin-top:2rem;
-        li{
-            list-style: none;
-            margin-left:3rem;
-            margin-top:1.5rem
 
+        margin-top: 2rem;
+
+        li {
+            list-style: none;
+            margin-left: 3rem;
+            margin-top: 1.5rem
         }
     }
 
-    
-   
+    .head {
+        width: 75%;
+        position: sticky;
+        height: 100px;
+        top: 0;
+        background-color: #121212;
+        margin-bottom: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        z-index: 1;
+    }
 
+    @media (max-width:1000px) {
+        .head {
+            width: 100%;
+        }
 
+    }
 </style>
 
 
 <body>
-    
-    <main>
+    <div class="head">
         <header>
-            <div class="logo_funny"><img src="assets/logo-funny.png" alt="nothing"/></div>
+            <div class="logo_funny"><img src="assets/logo-funny.png" alt="nothing" /></div>
             <div id="project-name">
                 <!-- <h1>Expense Tracker</h1>
                 <span>"Effortless expense tracking and management." 💵📉</span> -->
             </div>
             <div class="contact">
-                contact
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M48 270.9l118.9 44.6L181.7 464 256 360l104 104L464 48 48 270.9zm294.9 126L260 313.4 374.9 152 193.6 289.8 124.9 265l291-156.2-73 288.1z"></path></svg>
+                <a href="mailto:tirthchaudhary8080@gmail.com" style="text-decoration: none;color: inherit;">contact
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="icon"
+                    height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M48 270.9l118.9 44.6L181.7 464 256 360l104 104L464 48 48 270.9zm294.9 126L260 313.4 374.9 152 193.6 289.8 124.9 265l291-156.2-73 288.1z">
+                    </path>
+                </svg>
+                </a>
             </div>
         </header>
+    </div>
+    <div style="color: white; width: 100%; font-size: 1.2rem;" onclick="window.history.back()" >
+    <span style="margin-left: 20%;  font-size: 2.5rem;"> ⬅ </span>  
+    </div>        
+
+    <main>
+
 
         <div id="content">
 
@@ -175,7 +210,7 @@
                 </div>
                 <div id="project-tech">
                     <h3>Technology Stack</h3>
-                         <!-- <li>
+                    <!-- <li>
                         ✅ React.js – Used for building an interactive and responsive frontend, ensuring seamless user experience for tracking and visualizing expenses.
                                             </li>
                                             <li>
@@ -204,7 +239,7 @@
 
                 <div id="project-question">
                     <h3>
-                    Why Expense Tracker?
+                        Why Expense Tracker?
                     </h3>
                     <!-- <li>
 💡 Financial Awareness – Helps users gain control over their spending habits.
@@ -214,9 +249,8 @@
                     </li> -->
                 </div>
 
-                
-</div>
-            
+            </div>
+
 
         </div>
         <div id="project-cartoon">
@@ -227,16 +261,39 @@
 
 
 
-       
+
 
     </main>
 
+    <footer
+        style="background-color: #121212; color: white;width: 100%; margin-top: 2rem;height:45vh;font-family: Work Sans, GT Walsheim Trial, Helvetica Neue, Helvetica, Arial, sans-serif;letter-spacing: .08re;word-spacing: .1rem;">
+        <div style="text-align: center; margin-top:2rem">
+            <div>
+                <h2>🚀 Let’s Create Something Incredible Together!</h2>
+            </div>
+            <p>
+                Don’t Hesitate to Reach Out for Projects, Collaborations, or Just to Chat! 💬
+            </p>
+            <p style="font-size: 18px; margin: 5px 0;">Email: <a href="mailto:tirthchaudhary8080@gmail.com"
+                    style=" color: white;">tirthchaudhari@gmail.com</a></p>
+        </div>
+
+        <div style="width: 50%;justify-self: center;display:flex;justify-content:space-between;align-items: center;">
+            <div class="logo_funny" style="margin-top: 2rem;"><img src="assets/logo-funny.png" alt="nothing" /></div>
+        </div>
+        <p style="font-size: 16px; color: #bbb; margin: 0;justify-self: center;">© 2025 Tirth Chaudhari. All rights
+            reserved.</p>
+
+
+    </footer>
+
 
 </body>
+
 </html>
 
 <script src="project.js">
 
-   
-    
+
+
 </script>
