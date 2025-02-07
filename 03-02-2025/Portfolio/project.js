@@ -2,7 +2,6 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const name = urlParams.get('name');
-console.log(name);
 
 let obj;
 const project_name=document.getElementById('project-name');
@@ -11,20 +10,34 @@ const project_para=document.getElementById('project-para')
 const project_tech=document.getElementById('project-tech')
 const project_feature=document.getElementById('project-feature')
 const project_questions=document.getElementById('project-question')
-    fetch('./project.json').then(async (response)=>
+    fetch('./project.json').then((response)=>
     {
-        const data=await response.json();
-        for(dt of data)
+        
+        const data=response.json();
+        data.then((res)=>
         {
             
-            if(dt.id==name)
-            {
-                obj=dt;
-
-                break;
-            }
-        }
-        getProject()
+            for(dt of res)
+                {
+                    
+                    if(dt.id==name)
+                    {
+                        obj=dt;
+        
+                        break;
+                    }
+                }
+                getProject()
+        })  
+        .catch((error)=>
+        {
+            
+        })
+       
+    })
+    .catch((error)=>
+    {
+        
     })
 
     function getProject()
