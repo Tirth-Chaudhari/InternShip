@@ -1,0 +1,19 @@
+
+<div class="container">
+  <!-- interpolation -->
+  <h2>{{title}}</h2>
+
+  <!-- property binding -->
+  <input type="text" [value]="name"/>
+  <input type="text" [value]="lname"/>
+
+  <!--  Event Binding -->
+  <button (click)="ShowMessage('btn click')">Click</button>
+
+  <!-- two way data bind -->
+  <input type="text" [(ngModel)]="title"/>
+
+
+
+
+</div>
