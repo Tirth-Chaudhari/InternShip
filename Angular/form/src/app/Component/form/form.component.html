@@ -1,0 +1,49 @@
+<div id="container">
+    <form
+    (ngSubmit)="register(registerForm)"
+    #registerForm="ngForm"
+    >
+        <div class="box">
+            <label>Email</label>
+            <input type="email" name="email" [(ngModel)]="email" placeholder="johnDoe8545@gmail.com"
+             required
+             pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+             #email1="ngModel"
+             />
+             <small style="color: red;margin-top: .2rem;" *ngIf="email1.invalid && email1.touched &&email1.value!=''">Enter valid email</small>
+            </div>
+
+        <div class="box">
+            <label>Phone Number</label>
+            <input type="number" name="phone" [(ngModel)]="phone" placeholder="5862456324"
+            pattern="[0-9]{10}"
+            required
+            #mobile="ngModel"
+            />
+            <small style="color: red;margin-top: .2rem" *ngIf="mobile.invalid && mobile.touched && mobile.value!=''">Enter 10 digit mobile number</small>
+
+        </div>
+
+        <div class="box">
+            <label>Password</label>
+            <input type="password" name="password" [(ngModel)]="password" placeholder="******" 
+            minlength="6"
+            required
+            pattern="(?=.*[a-z])(?=.*[A-Z]).+"
+            #pwd="ngModel" 
+            />
+            <small style="color: red;margin-top: .2rem" *ngIf="pwd.invalid && pwd.touched && pwd.value!=''">
+                Password must be at least 6 characters, include uppercase letter, lowercase letter
+            </small>
+
+        </div>
+        <div class="box">
+            <label>Confirm Password</label>
+            <input type="password" name="confirm" [(ngModel)]="confirm" placeholder="******" />
+        </div>
+
+        <div id="register">
+             <button class="btn" type="submit">Register</button>
+        </div>
+    </form>
+</div>
