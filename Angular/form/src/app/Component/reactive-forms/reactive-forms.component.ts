@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -9,6 +10,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class ReactiveFormsComponent {
 
+  router=inject(Router)
   registerForm: FormGroup=new FormGroup(
     {
        name:new FormControl('',),
@@ -26,6 +28,9 @@ export class ReactiveFormsComponent {
   {
     console.log(this.registerForm.value);
     console.log(this.registerForm.controls['name']?.value);
+    localStorage.setItem('name',this.registerForm.get('name')?.value);
+    this.router.navigate(['home'])
+    
 
     // this.registerForm.setValue(
     //   {
