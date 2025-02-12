@@ -1,0 +1,75 @@
+
+
+
+<div class="container">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" formControlName="name" required>
+            @if(registerForm.controls['name']?.errors?.['required'] && registerForm.controls['name'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;">name is required</span>
+            }
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" formControlName="email">
+            @if(registerForm.controls['email']?.errors?.['required'] && registerForm.controls['email'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;">email required</span>
+            }
+            @if(registerForm.controls['email']?.errors?.['email'])
+            {
+                <span style="color: red;margin-bottom: 1rem;">enter valid email</span>
+            }
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"  formControlName="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).+"
+        >
+            @if(registerForm.controls['password']?.errors?.['required'] && registerForm.controls['password'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;">password is required</span>
+            }
+            @if(registerForm.controls['password']?.errors?.['minlength'])
+            {
+                <span style="color: red;margin-bottom: 1rem;">password minimum 6 character required</span>
+            }
+            @if(registerForm.controls['password']?.errors?.['pattern'])
+            {
+                <span style="color: red;margin-bottom: 1rem;">password pattern not match</span>
+            }
+            
+            
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password"  formControlName="confirmPassword">
+            @if(registerForm.controls['confirmPassword']?.errors?.['required'] && registerForm.controls['confirmPassword'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;">password is required</span>
+            }
+            @if(registerForm.controls['confirmPassword'].value!=registerForm.controls['password'].value && registerForm.controls['confirmPassword'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;"> <br/>confirm-password not match</span>
+            }
+
+        <label for="state">Select State</label>
+        <select id="state" name="state" formControlName="state">
+            <option value="">-- Select State --</option>
+            <option value="gujarat">Gujarat</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="rajasthan">Rajasthan</option>
+            <option value="delhi">Delhi</option>
+        </select>
+         @if(registerForm.controls['state']?.errors?.['required'] && registerForm.controls['state'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;">state is required</span>
+            }
+
+        <label>Gender</label>
+        <div class="gender" >
+            <label><input type="radio" name="gender" formControlName="gender" value="male" > Male</label>
+            <label><input type="radio" name="gender" formControlName="gender" value="female" > Female</label>
+        </div>
+        
+        <button type="submit" [disabled]="!registerForm.valid">Register</button>
+    </form>
+</div>

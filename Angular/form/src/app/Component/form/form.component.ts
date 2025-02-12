@@ -15,8 +15,6 @@ export class FormComponent {
   password:string=''
   confirm:string=''
 
-
-
   Submit()
   {
     alert(this.email+''+this.phone+' Register Success')
@@ -39,10 +37,6 @@ export class FormComponent {
         alert('Enter Valid Entry')
       }
   }
-
-  
-
-
 
 
 }
