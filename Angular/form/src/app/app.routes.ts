@@ -4,6 +4,8 @@ import { LearnSignalComponent } from './Component/learn-signal/learn-signal.comp
 import { HomeComponent } from './Component/home/home.component';
 import { LayoutComponent } from './Component/layout/layout.component';
 import { checkRegisterGuard } from './guard/check-register.guard';
+import { LearnLifecycleComponent } from './Component/learn-lifecycle/learn-lifecycle.component';
+import { LearnInjectionComponent } from './Component/learn-injection/learn-injection.component';
 
 export const routes: Routes = [
     {
@@ -18,6 +20,7 @@ export const routes: Routes = [
     {
         
             path:'',
+            component:LayoutComponent,
             canActivate:[checkRegisterGuard],
             children:[
                 {
@@ -29,6 +32,14 @@ export const routes: Routes = [
                     path:'signal',
                     component:LearnSignalComponent
                 },
+                {
+                    path:'lifecycle',
+                    component:LearnLifecycleComponent
+                },
+                {
+                    path:'inject',
+                    component:LearnInjectionComponent
+                }
                
             ]
         

@@ -3,7 +3,8 @@ import { CanActivateFn } from '@angular/router';
 
 import { checkRegisterGuard } from './check-register.guard';
 
-describe('checkRegisterGuard', () => {
+describe('checkRegisterGuard', () => 
+{
   const executeGuard: CanActivateFn = (...guardParameters) => 
       TestBed.runInInjectionContext(() => checkRegisterGuard(...guardParameters));
 

@@ -8,7 +8,8 @@ import { LearnSignalComponent } from './Component/learn-signal/learn-signal.comp
   selector: 'app-root',
   imports: [RouterOutlet,FormComponent,ReactiveFormsComponent,LearnSignalComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+ 
 })
 export class AppComponent {
   title = 'form';
