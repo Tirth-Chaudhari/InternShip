@@ -8,14 +8,11 @@ import { User, UserService } from '../../Service/User/user.service';
   templateUrl: './learn-injection.component.html',
   styleUrl: './learn-injection.component.css'
 })
-export class LearnInjectionComponent {
+export class LearnInjectionComponent 
+{
 
   UserService=inject(UserService)
-    // constructor(private UserService:UserService)
-    // {
-
-    // }
-
+  
   getUsers()
   {
       this.UserService.getUser().subscribe((result:User[])=>
@@ -23,10 +20,7 @@ export class LearnInjectionComponent {
         console.log(result);
         
       });
-     
   }
-  
-
 }
 
 
