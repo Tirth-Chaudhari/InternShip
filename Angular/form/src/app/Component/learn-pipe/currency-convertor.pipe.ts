@@ -1,13 +1,22 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Input, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'currencyConvertor'
 })
-export class CurrencyConvertorPipe implements PipeTransform {
-
-  transform(value:number, ...args: unknown[]): unknown {
+export class CurrencyConvertorPipe implements PipeTransform 
+{
+  
+  
+  transform(value:number, ...args: number[]): number {
     
-    return value*80;
+    const your_rate=args[0];
+    const convert_rate=args[1];
+
+    if(convert_rate==0)
+    {
+      return 0;
+    }
+    return (value/your_rate)*convert_rate;
 
   }
 
