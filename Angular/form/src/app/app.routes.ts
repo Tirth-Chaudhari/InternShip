@@ -6,6 +6,8 @@ import { LayoutComponent } from './Component/layout/layout.component';
 import { checkRegisterGuard } from './guard/check-register.guard';
 import { LearnLifecycleComponent } from './Component/learn-lifecycle/learn-lifecycle.component';
 import { LearnInjectionComponent } from './Component/learn-injection/learn-injection.component';
+import { UseDirectiveComponent } from './Component/learn-directive/use-directive/use-directive.component';
+import { UsepipeComponent } from './Component/learn-pipe/usepipe/usepipe.component';
 
 export const routes: Routes = [
     {
@@ -39,6 +41,14 @@ export const routes: Routes = [
                 {
                     path:'inject',
                     component:LearnInjectionComponent
+                },
+                {
+                    path:'directive',
+                    component:UseDirectiveComponent
+                },
+                {
+                    path:'pipe',
+                    component:UsepipeComponent
                 }
                
             ]
