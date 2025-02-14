@@ -1,27 +1,34 @@
-
 <div style="display: flex;align-items: center; margin-top:10rem;flex-direction: column;">
-<div>
-    select your currency:
-    <select style="margin-bottom: 2rem;" [(ngModel)]="your_rate">
-    <option value="0">select country</option>
-    <option value="1">India</option>
-    <option value=".0125">USA</option>
-    <option value=".08">China</option>
-    <option value="3.2">Pak</option>
-    </select>
+    <div>
+        select your currency:
+        <select style="margin-bottom: 2rem;" [(ngModel)]="your_rate">
+            <option value="0">select country</option>
+            <option value="1">India</option>
+            <option value=".0125">USA</option>
+            <option value=".08">China</option>
+            <option value="3.2">Pak</option>
+        </select>
 
-    <span style="margin-left:1rem">select convert to currency:</span>
-    <select  style="margin-bottom: 2rem;" [(ngModel)]="convert_rate">
-    <option value="0">select country</option>
-        <option value="1">India</option>
-        <option value=".0125">USA</option>  
-        <option value=".08">China</option>
-        <option value="3.2">Pak</option>
-    </select>
-</div>
-<div>
-    Enter amount here:
-    <input type="number" [(ngModel)]="amount"/>
-</div>
-<div style="margin-top:2rem">Amount is {{amount | currencyConvertor:your_rate:convert_rate}}</div>
+        <span style="margin-left:1rem">select convert to currency:</span>
+        <select style="margin-bottom: 2rem;" [(ngModel)]="convert_rate">
+            <option value="0">select country</option>
+            <option value="1">India</option>
+            <option value=".0125">USA</option>
+            <option value=".08">China</option>
+            <option value="3.2">Pak</option>
+        </select>
+    </div>
+    <div>
+        Enter amount here:
+        <input type="number" [(ngModel)]="amount" />
+    </div>
+    <div style="margin-top:2rem">Amount is {{amount | currencyConvertor:your_rate:convert_rate | number:'1.1-2'}}</div>
+    <div style="margin-top:2rem;">
+        {{object}} without json pipe
+    </div>
+    <div>
+        {{object | json}} with json pipe
+    </div>
+    <span style="margin-top:2rem" >key value pipe</span>
+    <div *ngFor="let item of object | keyvalue">{{ item.key }}:{{ item.value | json }}</div>
 </div>
