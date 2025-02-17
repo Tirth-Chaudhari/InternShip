@@ -4,10 +4,10 @@ import { LearnSignalComponent } from './Component/learn-signal/learn-signal.comp
 import { HomeComponent } from './Component/home/home.component';
 import { LayoutComponent } from './Component/layout/layout.component';
 import { checkRegisterGuard } from './guard/check-register.guard';
-import { LearnLifecycleComponent } from './Component/learn-lifecycle/learn-lifecycle.component';
 import { LearnInjectionComponent } from './Component/learn-injection/learn-injection.component';
 import { UseDirectiveComponent } from './Component/learn-directive/use-directive/use-directive.component';
 import { UsepipeComponent } from './Component/learn-pipe/usepipe/usepipe.component';
+import { ParentComponent } from './Component/learn-lifecycle/parent/parent.component';
 
 export const routes: Routes = [
     {
@@ -36,7 +36,7 @@ export const routes: Routes = [
                 },
                 {
                     path:'lifecycle',
-                    component:LearnLifecycleComponent
+                    component:ParentComponent
                 },
                 {
                     path:'inject',

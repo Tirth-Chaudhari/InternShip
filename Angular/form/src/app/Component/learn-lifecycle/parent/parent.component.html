@@ -1,0 +1,8 @@
+<p>parent works!</p>
+
+<button (click)="ToggleChild()">Toggle</button>
+<input type="text" [(ngModel)]="str"/>
+<app-child *ngIf="toggle" [str]="str">
+
+    <h2 #contentInit>After ContentInit Example</h2>
+</app-child>
