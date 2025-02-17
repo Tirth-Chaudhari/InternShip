@@ -8,6 +8,7 @@ import { LearnInjectionComponent } from './Component/learn-injection/learn-injec
 import { UseDirectiveComponent } from './Component/learn-directive/use-directive/use-directive.component';
 import { UsepipeComponent } from './Component/learn-pipe/usepipe/usepipe.component';
 import { ParentComponent } from './Component/learn-lifecycle/parent/parent.component';
+import { LearnRxjsComponent } from './Component/learn-rxjs/learn-rxjs.component';
 
 export const routes: Routes = [
     {
@@ -49,6 +50,11 @@ export const routes: Routes = [
                 {
                     path:'pipe',
                     component:UsepipeComponent
+                },
+                {
+                    path:'rxjs',
+                    component:LearnRxjsComponent
+
                 }
                
             ]
