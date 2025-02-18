@@ -1,6 +1,6 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { from, map, Observable, of, Subject } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, from, map, Observable, of, ReplaySubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-learn-rxjs',
@@ -11,7 +11,10 @@ import { from, map, Observable, of, Subject } from 'rxjs';
 export class LearnRxjsComponent 
 {
     data:any[]=[];
-    subject:Subject<number> = new Subject<number>();
+    // subject:Subject<number> = new Subject<number>(); 
+    //  subject = new BehaviorSubject(0); 
+    // subject=new ReplaySubject(2); // 2 is here buffer value
+    // subject=new AsyncSubject() 
 
     mydata=new Observable((observer)=>
     {
@@ -91,7 +94,63 @@ export class LearnRxjsComponent
     //  observerA: 2
 
 
+
+    //Behavioural Subject
+
+    // this.subject.subscribe({
+    //   next:(value)=> console.log(value)
+    // })
+    // this.subject.next(1);
+    // this.subject.next(2);
+    // this.subject.subscribe({
+    //   next:(value)=> console.log(value)
+    // })
+    // this.subject.next(3);
+
+
+
+    // Replay Subject
+
+    // this.subject.subscribe({
+    //   next: (v) => console.log(`observerA: ${v}`),
+    // });
+    // this.subject.next(1);
+    // this.subject.next(2);
+    // this.subject.next(3);
+    // this.subject.next(4);
+    
+    // this.subject.subscribe({
+    //   next: (v) => console.log(`observerB: ${v}`),
+    // });
+    // this.subject.next(5);
+
+
+
+    //AsyncSubject:
+    // async subject takes only last data when it completet
+
+    // this.subject.subscribe({
+    //   next: (v) => console.log(`observerA: ${v}`),
+    // });
+    // this.subject.next(1);
+    // this.subject.next(2);
+    // this.subject.next(3);
+    // this.subject.next(4);
+    
+    // this.subject.subscribe({
+    //   next: (v) => console.log(`observerB: ${v}`),
+    // });
+    // this.subject.next(5);
+    // this.subject.complete();
+
+  
+
+      
+
+
+
     }
+
 
 
     
