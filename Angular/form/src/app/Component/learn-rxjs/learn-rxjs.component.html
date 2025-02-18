@@ -5,3 +5,8 @@
     {{dt}}
 </div>
 <button (click)="getAsyncData()">GetData</button>
+
+<div style="margin-top:2rem;">
+<input type="text" placeholder="enter your key" [(ngModel)]="key" (input)="onSearch()"/>
+<button (click)="onSearch()">Get key Data</button>
+</div>
