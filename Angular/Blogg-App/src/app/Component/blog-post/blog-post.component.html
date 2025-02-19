@@ -1,6 +1,25 @@
 
-<div>
+<div  class="mt-16">
+    <div class="flex justify-center flex-col items-center">
+       <div *ngFor="let news of Data" class="flex justify-center md:w-1/2 w-full">  
+            <div>
+                <div>
+                    <h2>{{news.author}}</h2>
+                </div>
+                <div>
+                    <p>{{news.title}}</p>
+                </div>
+            </div>
+            
+            <div class="w-64 ">
+                    <img [src]="news.urlToImage" class="object-cover"/>
+            </div>
 
-    Post a blog Of your Choice
+        </div>
+    </div>
+
+
+
+
 
 </div>
