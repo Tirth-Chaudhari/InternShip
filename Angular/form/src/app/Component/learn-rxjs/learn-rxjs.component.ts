@@ -14,7 +14,7 @@ export class LearnRxjsComponent
     data:any[]=[];
     key:String='';
 
-    subject:Subject<String>=new Subject<String>();
+    // subject:Subject<String>=new Subject<String>();
 
     constructor()
     {
@@ -37,13 +37,13 @@ export class LearnRxjsComponent
     //     return of(1,2,3);
     // }
     // subject:Subject<number> = new Subject<number>(); 
-    //  subject = new BehaviorSubject(0); 
+     subject = new BehaviorSubject(0); 
     // subject=new ReplaySubject(2); // 2 is here buffer value
     // subject=new AsyncSubject() 
 
     onSearch()
     {
-      this.subject.next(this.key);
+      // this.subject.next(this.key);
       
     }
 
@@ -112,14 +112,16 @@ export class LearnRxjsComponent
     //subjects in rxjs
     // subject is apply for all subscribers
       
-  // this.subject.subscribe({
-  //   next: (v) => console.log(`observerA: ${v}`),
-  // });
-  // this.subject.subscribe({
-  //   next: (v) => console.log(`observerB: ${v}`),
-  // });
-  //   this.subject.next(1);
-  //   this.subject.next(2);
+  this.subject.subscribe({
+    next: (v) => console.log(`observerA: ${v}`),
+  });
+    this.subject.next(1);
+    this.subject.next(2);
+  this.subject.subscribe({
+    next: (v) => console.log(`observerB: ${v}`),
+  });
+  this.subject.next(3);
+    
     //  observerA: 1
     //  observerB: 1
     //  observerB: 2
@@ -174,6 +176,9 @@ export class LearnRxjsComponent
     // });
     // this.subject.next(5);
     // this.subject.complete();
+
+
+    //pluck operator: to take key:value from array
 
     }
 
