@@ -8,13 +8,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class HomeComponent {
 
-  search:String=''
-
-
-  clearInput()
-  {
-    this.search='';
-  }
+  
 
 
 }

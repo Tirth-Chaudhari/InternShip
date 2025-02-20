@@ -1,25 +1,64 @@
+<div class="mt-16 ">
+    <div class="lg:w-4/5 w-full grid grid-cols-5 grid-rows-1 justify-self-end">
+        <div class="col-span-3 cursor-pointer">
+            <div *ngFor="let news of Data"
+                class="flex flex-wrap w-full border-b-2 border-gray-400 rounded-lg p-4 justify-center items-center">
+                <!-- Content Section -->
+                <div class="flex-1 space-y-2">
+                    <h2 class="text-xl font-semibold text-gray-800">{{news.author}}</h2>
+                    <p class="text-gray-600">{{news.title}}</p>
+                </div>
 
-<div  class="mt-16">
-    <div class="flex justify-center flex-col items-center">
-       <div *ngFor="let news of Data" class="flex justify-center md:w-1/2 w-full">  
-            <div>
-                <div>
-                    <h2>{{news.author}}</h2>
+                <!-- Image Section -->
+                <div class="w-48 h-32 flex-0">
+                    <img [ngSrc]="news.urlToImage" alt="News Image" class="w-full h-full object-cover rounded-md"
+                        width="200" height="200" />
+                    <!-- ngOptimize Module -->
                 </div>
-                <div>
-                    <p>{{news.title}}</p>
-                </div>
+            </div>
+        </div>
+
+
+        <!-- Top Headline Section here  -->
+        <div class="col-span-2 md:ml-8 bg-white p-6 rounded-lg">
+            <h1 class="text-2xl font-semibold text-gray-800 mb-4">
+              Top Headlines News
+            </h1>
+
+            <div class="flex flex-wrap gap-4">
+                <button *ngFor="let category of categories" (click)="setActiveCategory(category)"
+                    [ngClass]="{'bg-black text-white': selectedCategory === category, 'bg-[#dedcd9] text-black': selectedCategory !== category}"
+                    class="px-6 py-3 rounded-full shadow-md hover:bg-[#c6c0ba] ">
+                    {{ category }}
+                </button>
+            </div>
+
+            <div class="flex items-center space-x-2 m-6">
+                <h2 class="text-2xl font-semibold text-gray-800">Trending</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                </svg> 
             </div>
             
-            <div class="w-64 ">
-                    <img [src]="news.urlToImage" class="object-cover"/>
+
+
+            <div *ngFor="let news of Trending" class="flex flex-wrap w-fullrounded-lg p-4 justify-center items-center">
+                <div class="flex-1 space-y-2">
+                    <h2 class="text-xl font-semibold text-gray-800">{{news.author}}</h2>
+                    <p class="text-gray-600">{{news.title}}</p>
+                </div>
+
+                <div class="w-24 h-16 flex-0">
+                    <img [ngSrc]="news.urlToImage" alt="News Image" class="w-full h-full object-cover rounded-md"
+                        width="200" height="200" />
+                </div>
             </div>
 
+
+
+
         </div>
+
+
     </div>
-
-
-
-
-
-</div>

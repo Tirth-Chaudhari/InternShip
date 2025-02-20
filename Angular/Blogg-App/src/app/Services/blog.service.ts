@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { distinctUntilChanged, Observable, Subject } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -8,16 +8,39 @@ import { environment } from '../../environments/environment';
 })
 export class BlogService {
 
-  private apiUrl=environment.apiUrl;
+  private apikey=environment.apiKey;
+  private apiUrl_all= environment.apiUrl
+  private apiUrl_trending=environment.apiTrendUrl
+
+  searchTerm = new Subject<string>(); 
+  searchCountry=new Subject<string>();
 
   constructor(private http:HttpClient) 
   {
 
-   }
+  }
 
-  getBlogs() : Observable<any>
+  onSearch(search:string)
   {
-        return this.http.get<any>(`${this.apiUrl}`);   
+    this.searchTerm.next(search);
+  }
+  onCountrySearch(country:string)
+  {
+    this.searchCountry.next(country);
+  }
+
+  getAllBlogs(search:string)
+  {
+      let query='';
+      query=this.apiUrl_all+`q=${search}&from=2025-02-19&to=2025-02-19&sortBy=popularity&apiKey=`+this.apikey;
+      return this.http.get<any>(`${query}`)
+         
+  }
+  getTrendingBlogs(country:string,category:string) :Observable<any>
+  {
+      let query='';
+      query=this.apiUrl_trending+'country='+country+'&category='+category+'&page=2'+'&pageSize=5'+'&apiKey='+this.apikey
+      return this.http.get<any>(`${query}`)
   }
 }
 

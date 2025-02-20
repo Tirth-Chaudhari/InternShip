@@ -1,15 +1,45 @@
 
 
-<div class="flex p-4 w-full border-b-2 border-gray-500">
+<div class="p-4 w-full border-b-2 border-gray-500 grid md:grid-cols-3 md:grid-rows-1 grid-cols-2 grid-rows-2 fixed top-0  bg-white z-10">
 
-    <div class="w-64">
+    <div class="">
         <h1 class="text-xl font-bold font-serif py-2">DailyPulse News</h1>
     </div>
 
-    <div class="flex w-full justify-end gap-4">
+    <div class=" p-1 w-full  border-2 rounded-full flex bg-gray-50 hover:bg-transparent hover:border-pink-100 row-start-2 col-span-3 md:row-start-1 md:col-span-1 md:col-start-2">
+       
+       
+        <input type="text" [placeholder]="selection=='All' ? allStr:trendStr" class="p-1 justify-self-start outline-none w-full bg-transparent font-light" [(ngModel)]="search" />
+        @if(search.length!=0)
+        {
+            <button class="p-2 text-gray-500 hover:text-red-500 mr-4 bg-gray-100 rounded-full" (click)="clearInput()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        }
+        <select class="outline-none w-16 p-2 hover:text-gray-400 bg-transparent" [(ngModel)]="selection">
+            <option value="All">All</option>
+            <option value="Trending">Trending</option>
+        </select>
+                
+
+        <button class="rounded-full bg-pink-400 p-2" (click)="onSearch()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 6 6a7.5 7.5 0 0 0 10.65 10.65z"/>
+            </svg>
+        </button>
+        
+    </div>
+
+    <div class="gap-4 flex justify-end">
         <button class="rounded-2xl text-md p-2 font-bold font-sans hover:text-gray-600 ">Sign up</button>
         <button class="rounded-full text-white bg-black text-md font-sans px-4 py-2 hover:bg-gray-600">Log in</button>
     </div>
+   
+    
+    
 
 
 </div>
+
