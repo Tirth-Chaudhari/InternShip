@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
 
-  url:String='https://newsapi.org/v2/everything?q=apple&from=2025-02-18&to=2025-02-18&sortBy=popularity&apiKey=9fa182604a50469c919b625d5d84a05c'
+  private apiUrl=environment.apiUrl;
 
   constructor(private http:HttpClient) 
   {
@@ -16,7 +17,7 @@ export class BlogService {
 
   getBlogs() : Observable<any>
   {
-        return this.http.get<any>(`${this.url}`);   
+        return this.http.get<any>(`${this.apiUrl}`);   
   }
 }
 
