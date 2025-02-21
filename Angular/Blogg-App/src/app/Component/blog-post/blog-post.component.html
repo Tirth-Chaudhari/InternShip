@@ -1,7 +1,8 @@
 <div class="mt-16 ">
     <div class="lg:w-4/5 w-full grid grid-cols-5 grid-rows-1 justify-self-end">
         <div class="col-span-3 cursor-pointer">
-            <div *ngFor="let news of Data"
+            
+            <div *ngFor="let news of AllData" 
                 class="flex flex-wrap w-full border-b-2 border-gray-400 rounded-lg p-4 justify-center items-center">
                 <!-- Content Section -->
                 <div class="flex-1 space-y-2">
@@ -11,21 +12,20 @@
 
                 <!-- Image Section -->
                 <div class="w-48 h-32 flex-0">
-                    <img [ngSrc]="news.urlToImage" alt="News Image" class="w-full h-full object-cover rounded-md"
+                    <img [src]="news.urlToImage" alt="News Image" class="w-full h-full object-cover rounded-md"
                         width="200" height="200" />
                     <!-- ngOptimize Module -->
                 </div>
             </div>
+             
                 @if(loader){
                 <div 
                 class="flex flex-wrap w-full  rounded-lg p-4 justify-center items-center mt-4">
                     <span class="rounded-full p-4 border-4 border-gray-400 animate-spin border-t-blue-900">
                     </span>
 
-                </div>
-                }
-
-              
+                </div>    
+             }          
             
         </div>
 
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="w-24 h-16 flex-0">
-                    <img [ngSrc]="news.urlToImage" alt="News Image" class="w-full h-full object-cover rounded-md"
+                    <img [src]="news.urlToImage" alt="News Image" class="w-full h-full object-cover rounded-md"
                         width="200" height="200" />
                 </div>
             </div>

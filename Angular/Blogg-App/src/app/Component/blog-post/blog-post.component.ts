@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BlogService, NewsModel } from '../../Services/blog.service';
 import { NgClass, NgFor, NgOptimizedImage } from '@angular/common';
 import { distinctUntilChanged, switchMap, toArray } from 'rxjs';
@@ -10,7 +10,8 @@ import { distinctUntilChanged, switchMap, toArray } from 'rxjs';
        styleUrl: './blog-post.component.css'
 })
 export class BlogPostComponent {
-       Data: NewsModel[] = [];   //all Data
+       AllData: NewsModel[] = [];   //all Data
+       SearchData: NewsModel[]=[]
        Trending: NewsModel[]=[]; // Trending news
 
        categories = ['Business', 'Entertainment', 'General', 'Science', 'Sports', 'Technology']
@@ -18,38 +19,38 @@ export class BlogPostComponent {
 
        loader:boolean=false;
        loader_trend:boolean=false;
+       page:number=1;
+
 
        constructor(private blogService: BlogService) {
 
-              // for All blog service searchTerm here
-
+              
+              // Search news category
               this.blogService.searchTerm.pipe(
-                    
                      distinctUntilChanged(),
-                     switchMap((term)=> this.blogService.getAllBlogs(term))
+                     switchMap(()=> this.blogService.getAllBlogs())
               ).subscribe((results)=>
               {
-                     this.Data=results.articles.slice(0,10)
+                     this.AllData=results.articles;
                      this.blogService.onload.next(false);
               })
 
-              // for searchCountry  Trending News here
-
               this.blogService.searchCountry.pipe(
                      distinctUntilChanged(),
-                     switchMap((country)=> this.blogService.getTrendingBlogs(country,this.selectedCategory))
-              ).subscribe((results)=>
+                     switchMap((cat)=> this.blogService.getTrendingBlogs(cat))
+              ).
+              subscribe((data)=>
               {
-                     this.Trending=results.articles
+                     this.Trending=data.articles;
                      this.blogService.onload_trend.next(false);
-                     
+
               })
 
-              this.blogService.onload.subscribe((load)=>
+              this.blogService.onload.subscribe((load)=> //loader for all news
               {
                      this.loader=load;
               })
-              this.blogService.onload_trend.subscribe((load)=>
+              this.blogService.onload_trend.subscribe((load)=>  //loader for trending news
               {
                      this.loader_trend=load;
               })
@@ -58,15 +59,50 @@ export class BlogPostComponent {
  
        ngOnInit()
        {
-              this.blogService.onSearch('apple');
-              this.blogService.onCountrySearch('us');
+              //get All blogs from here
+              this.loader=true;
+              this.blogService.getAllBlogs().subscribe((data)=> 
+              {
+                     this.AllData=data.articles;
+                     this.loader=false;
+              })
+              this.blogService.onCountrySearch(this.selectedCategory);
+
 
        }
+       // for loading more data 
+       @HostListener('window:scroll',[])
+       onWindowScroll()
+       {
+                     if(window.scrollY+window.innerHeight>=document.body.offsetHeight+120)
+                     {
+                            if(this.loader==false){
+                                   this.loader=true;
+                                          this.blogService.loadMoreAllData().subscribe((data)=>
+                                          {
+                                                 this.AllData=[...this.AllData,...data.articles]
+                                                 this.loader=false;
+                                          })
+                                   }
+                            
+                    
+                            
 
-       setActiveCategory(category: string) {
+                     }
+       }
+
+       setActiveCategory(category: string) 
+       {
               this.selectedCategory = category;
+              this.blogService.onCountrySearch(category);
        }
 
+
+
+    
+
+       
+            
 
 
 }
