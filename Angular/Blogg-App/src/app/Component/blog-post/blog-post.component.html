@@ -16,6 +16,17 @@
                     <!-- ngOptimize Module -->
                 </div>
             </div>
+                @if(loader){
+                <div 
+                class="flex flex-wrap w-full  rounded-lg p-4 justify-center items-center mt-4">
+                    <span class="rounded-full p-4 border-4 border-gray-400 animate-spin border-t-blue-900">
+                    </span>
+
+                </div>
+                }
+
+              
+            
         </div>
 
 
@@ -42,7 +53,7 @@
             </div>
             
 
-
+            <!-- Trending all new are here -->
             <div *ngFor="let news of Trending" class="flex flex-wrap w-fullrounded-lg p-4 justify-center items-center">
                 <div class="flex-1 space-y-2">
                     <h2 class="text-xl font-semibold text-gray-800">{{news.author}}</h2>
@@ -54,6 +65,18 @@
                         width="200" height="200" />
                 </div>
             </div>
+
+
+            @if(loader_trend){
+                <div 
+                class="flex flex-wrap w-full  rounded-lg p-4 justify-center items-center mt-4">
+                    <span class="rounded-full p-4 border-4 border-gray-400 animate-spin border-t-blue-900">
+                    </span>
+
+                </div>
+                }
+
+
 
 
 
