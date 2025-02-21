@@ -14,6 +14,9 @@ export class BlogService {
 
   searchTerm = new Subject<string>(); 
   searchCountry=new Subject<string>();
+  onload=new Subject<boolean>();
+  onload_trend=new Subject<boolean>();
+  
 
   constructor(private http:HttpClient) 
   {
@@ -22,10 +25,12 @@ export class BlogService {
 
   onSearch(search:string)
   {
+    this.onload.next(true)
     this.searchTerm.next(search);
   }
   onCountrySearch(country:string)
   {
+    this.onload_trend.next(true);
     this.searchCountry.next(country);
   }
 
