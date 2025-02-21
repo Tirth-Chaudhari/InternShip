@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BlogService } from '../../Services/blog.service';
 
@@ -16,6 +16,14 @@ export class LayoutComponent {
 
   allStr:string='What are you looking for?' //for all placeholder
   trendStr:string='You want to see trend ? enter country name' //for trending  placeholder
+  loadData:boolean=false;
+
+  constructor()
+  {
+    this.blogService.onload.subscribe((load)=> {
+        this.loadData=!load;
+    })
+  }
 
 
   clearInput()
@@ -26,21 +34,16 @@ export class LayoutComponent {
   onSearch()
   {
         this.search=this.search.trim();
-
         if(this.search!='')
         {
-              if(this.selection=='All')
-              {
+              
                   this.blogService.onSearch(this.search);
-              }
-              else
-              {
-                  this.blogService.onCountrySearch(this.search)
-              }
+           
         }
 
-        
-  }
+    }
+
+
 
 
 

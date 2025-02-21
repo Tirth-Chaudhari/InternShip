@@ -16,7 +16,9 @@ export class BlogService {
   searchCountry=new Subject<string>();
   onload=new Subject<boolean>();
   onload_trend=new Subject<boolean>();
-  
+  SearchPage:number=1;
+  AllPage:number=1;
+  searchKey:string='apple';
 
   constructor(private http:HttpClient) 
   {
@@ -25,6 +27,8 @@ export class BlogService {
 
   onSearch(search:string)
   {
+    this.searchKey=search;
+    this.AllPage=1;
     this.onload.next(true)
     this.searchTerm.next(search);
   }
@@ -34,17 +38,48 @@ export class BlogService {
     this.searchCountry.next(country);
   }
 
-  getAllBlogs(search:string)
-  {
+  getAllBlogs()
+  {   
+      
+      
       let query='';
-      query=this.apiUrl_all+`q=${search}&from=2025-02-19&to=2025-02-19&sortBy=popularity&apiKey=`+this.apikey;
+      query=this.apiUrl_all+`q=${this.searchKey}&page=${this.AllPage}&pageSize=8&from=2025-02-19&to=2025-02-19&sortBy=popularity&apiKey=`+this.apikey;
+      this.AllPage++;
       return this.http.get<any>(`${query}`)
          
   }
-  getTrendingBlogs(country:string,category:string) :Observable<any>
+  loadMoreAllData()
+  {
+        
+    let query='';
+    query=this.apiUrl_all+`q=${this.searchKey}&page=${this.AllPage}&pageSize=8&from=2025-02-19&to=2025-02-19&sortBy=popularity&apiKey=`+this.apikey;
+    this.AllPage++;
+    return this.http.get<any>(`${query}`)
+  }
+
+  getSearchBlogs(search:string)
+  {
+      
+      let query='';
+      query=this.apiUrl_all+`q=${this.searchKey}&page=${this.SearchPage}&pageSize=8&from=2025-02-19&to=2025-02-19&sortBy=popularity&apiKey=`+this.apikey;
+      this.SearchPage++;
+      return this.http.get<any>(`${query}`)
+  }
+
+  loadMoreSearchData(search:String)
   {
       let query='';
-      query=this.apiUrl_trending+'country='+country+'&category='+category+'&page=2'+'&pageSize=5'+'&apiKey='+this.apikey
+      query=this.apiUrl_all+`q=${this.searchKey}&page=${this.SearchPage}&pageSize=8&from=2025-02-19&to=2025-02-19&sortBy=popularity&apiKey=`+this.apikey;
+      this.SearchPage++;
+      return this.http.get<any>(`${query}`)
+
+  }
+  
+
+  getTrendingBlogs(category:string) :Observable<any>
+  {
+      let query='';
+      query=this.apiUrl_trending+'country=us&category='+category+'&page=1'+'&pageSize=5'+'&apiKey='+this.apikey
       return this.http.get<any>(`${query}`)
   }
 }

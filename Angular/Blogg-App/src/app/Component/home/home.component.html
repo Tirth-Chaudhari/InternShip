@@ -1,5 +1,7 @@
 
 
+ <app-layout/>
+
 <div class="mt-32 ">
 
     <div class="flex flex-col items-center gap-6">
@@ -10,3 +12,13 @@
 
 
 </div>
+@if(path=='/home')
+{
+<app-blog-post/>
+}
+@else
+{
+    <app-blog-content/>
+}
+
+    <!-- <h1>hello</h1> -->
