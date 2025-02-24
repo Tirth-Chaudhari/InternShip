@@ -1,7 +1,8 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { BlogService, NewsModel } from '../../Services/blog.service';
 import { NgClass, NgFor, NgOptimizedImage } from '@angular/common';
 import { distinctUntilChanged, switchMap, toArray } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
        selector: 'app-blog-post',
@@ -20,7 +21,7 @@ export class BlogPostComponent {
        loader:boolean=false;
        loader_trend:boolean=false;
        page:number=1;
-
+       router=inject(Router)
 
        constructor(private blogService: BlogService) {
 
@@ -56,7 +57,8 @@ export class BlogPostComponent {
               })
 
        }
- 
+    
+
        ngOnInit()
        {
               //get All blogs from here
@@ -95,6 +97,14 @@ export class BlogPostComponent {
        {
               this.selectedCategory = category;
               this.blogService.onCountrySearch(category);
+       }
+
+       redirectToBlog(news:NewsModel)
+       {
+                          
+              localStorage.setItem('blogContent', JSON.stringify(news));
+              this.router.navigateByUrl('blog')
+              
        }
 
 

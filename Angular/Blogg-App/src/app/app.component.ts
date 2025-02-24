@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import {  RouterOutlet } from '@angular/router';
 import { HomeComponent } from './Component/home/home.component';
 import { LayoutComponent } from './Component/layout/layout.component';
 import { BlogPostComponent } from './Component/blog-post/blog-post.component';
@@ -12,4 +12,6 @@ import { BlogPostComponent } from './Component/blog-post/blog-post.component';
 })
 export class AppComponent {
   title = 'Blogg-App';
+    
+  
 }

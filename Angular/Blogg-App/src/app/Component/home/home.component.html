@@ -1,7 +1,66 @@
 
 
  <app-layout/>
+ 
+ 
+ @if(path=='/signup')
+ {
+    <div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" formControlName="name" required>
+            @if(registerForm.controls['name']?.errors?.['required'] && registerForm.controls['name'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;">name is required</span>
+            }
 
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" formControlName="email">
+            @if(registerForm.controls['email']?.errors?.['required'] && registerForm.controls['email'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;">email required</span>
+            }
+            @if(registerForm.controls['email']?.errors?.['email'])
+            {
+                <span style="color: red;margin-bottom: 1rem;">enter valid email</span>
+            }
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"  formControlName="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).+"
+        >
+            @if(registerForm.controls['password']?.errors?.['required'] && registerForm.controls['password'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;">password is required</span>
+            }
+            @if(registerForm.controls['password']?.errors?.['minlength'])
+            {
+                <span style="color: red;margin-bottom: 1rem;">password minimum 6 character required</span>
+            }
+            @if(registerForm.controls['password']?.errors?.['pattern'])
+            {
+                <span style="color: red;margin-bottom: 1rem;">password pattern not match</span>
+            }
+            
+            
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password"  formControlName="confirmPassword">
+            @if(registerForm.controls['confirmPassword']?.errors?.['required'] && registerForm.controls['confirmPassword'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;">password is required</span>
+            }
+            @if(registerForm.controls['confirmPassword'].value!=registerForm.controls['password'].value && registerForm.controls['confirmPassword'].touched)
+            {
+                <span style="color: red;margin-bottom: 1rem;"> <br/>confirm-password not match</span>
+            }
+            
+                <button type="submit" [disabled]="!registerForm.valid || (registerForm.controls['confirmPassword'].value!=registerForm.controls['password'].value)">Register</button>
+
+    </form>
+
+    </div>
+
+ }
 <div class="mt-32 ">
 
     <div class="flex flex-col items-center gap-6">
@@ -12,13 +71,15 @@
 
 
 </div>
-@if(path=='/home')
-{
-<app-blog-post/>
-}
-@else
-{
-    <app-blog-content/>
-}
+        @if(path=='/home' || path=='/signup')
+        {
+        <app-blog-post/>
+        }
+        @else if(path=='/blog')
+        {
+            <app-blog-content/>
+        }
+
+      
 
     <!-- <h1>hello</h1> -->

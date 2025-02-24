@@ -2,7 +2,7 @@
     <div class="lg:w-4/5 w-full grid grid-cols-5 grid-rows-1 justify-self-end">
         <div class="col-span-3 cursor-pointer">
             
-            <div *ngFor="let news of AllData" 
+            <div *ngFor="let news of AllData" (click)="redirectToBlog(news)"
                 class="flex flex-wrap w-full border-b-2 border-gray-400 rounded-lg p-4 justify-center items-center">
                 <!-- Content Section -->
                 <div class="flex-1 space-y-2">
@@ -31,7 +31,7 @@
 
 
         <!-- Top Headline Section here  -->
-        <div class="col-span-2 md:ml-8 bg-white p-6 rounded-lg">
+        <div class="col-span-2 md:ml-8  p-6 rounded-lg">
             <h1 class="text-2xl font-semibold text-gray-800 mb-4">
               Top Headlines News
             </h1>
@@ -52,9 +52,18 @@
                 </svg> 
             </div>
             
+            @if(loader_trend){
+                <div 
+                class="flex flex-wrap w-full  rounded-lg p-4 justify-center items-center mt-4">
+                    <span class="rounded-full p-4 border-4 border-gray-400 animate-spin border-t-blue-900">
+                    </span>
+
+                </div>
+                }
 
             <!-- Trending all new are here -->
-            <div *ngFor="let news of Trending" class="flex flex-wrap w-fullrounded-lg p-4 justify-center items-center">
+            <div *ngFor="let news of Trending" class="flex flex-wrap w-fullrounded-lg p-4 justify-center items-center" (click)="redirectToBlog(news)">
+               
                 <div class="flex-1 space-y-2">
                     <h2 class="text-xl font-semibold text-gray-800">{{news.author}}</h2>
                     <p class="text-gray-600">{{news.title}}</p>
@@ -67,14 +76,7 @@
             </div>
 
 
-            @if(loader_trend){
-                <div 
-                class="flex flex-wrap w-full  rounded-lg p-4 justify-center items-center mt-4">
-                    <span class="rounded-full p-4 border-4 border-gray-400 animate-spin border-t-blue-900">
-                    </span>
-
-                </div>
-                }
+          
 
 
 

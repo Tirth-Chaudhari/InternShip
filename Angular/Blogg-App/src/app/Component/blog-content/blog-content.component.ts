@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { NewsModel } from '../../Services/blog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-content',
@@ -8,10 +10,28 @@ import { Component } from '@angular/core';
 })
 export class BlogContentComponent {
 
-  ngOnInit()  
-  {
-    console.log('component loaded');
+  news: NewsModel = {
+    author: '',
+    content: '',
+    description: '',
+    publishedAt: '',
+    source: { id: '', name: '' },
+    title: '',
+    url: '',
+    urlToImage: '',
+  };
+  router=inject(Router)
+ constructor()
+ {
+    this.news=JSON.parse(localStorage.getItem('blogContent') || "")
     
-  }
+ }
+
+ redirectToBlogPage()
+ {
+    this.router.navigateByUrl('home')
+ }
+
+  
 
 }
