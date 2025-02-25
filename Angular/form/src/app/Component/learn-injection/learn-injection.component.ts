@@ -17,7 +17,14 @@ export class LearnInjectionComponent
   {
       this.UserService.getUser().subscribe((result:User[])=>
       {
-        console.log(result);
+
+          this.UserService.user=result;
+          let user:User={
+            id:'10',
+            name:'hello',
+             username:'hello'     
+          }
+          this.UserService.user.push(user)
         
       });
   }

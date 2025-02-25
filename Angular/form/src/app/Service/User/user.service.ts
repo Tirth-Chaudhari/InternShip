@@ -8,6 +8,7 @@ export class UserService {
 
   private userUrl='https://jsonplaceholder.typicode.com/users'
   private http=inject(HttpClient)
+  user:User[]=[]
 
   constructor() { } 
 
