@@ -29,7 +29,8 @@ export class BlogContentComponent {
 
  redirectToBlogPage()
  {
-    this.router.navigateByUrl('home')
+    // this.router.navigateByUrl('home')
+    window.history.back();
  }
 
   
