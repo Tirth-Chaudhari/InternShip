@@ -32,3 +32,33 @@
     <span style="margin-top:2rem" >key value pipe</span>
     <div *ngFor="let item of object | keyvalue">{{ item.key }}:{{ item.value | json }}</div>
 </div>
+
+
+<div style="margin-top:10rem; display:flex; justify-content:center">
+
+        <div>
+            
+            <div>
+                
+                <button (click)="AddUser()">AddUser</button>
+            </div>
+
+            <div *ngFor="let user of users">
+                    <h3>{{user}}</h3>
+            </div>
+
+            <input type="text" [(ngModel)]="searchString"/>
+
+            <div *ngFor="let user of users  | filter:searchString" >
+                <h3>{{user}}</h3>
+              </div>
+
+
+
+        </div>
+
+
+
+</div>
+
+
