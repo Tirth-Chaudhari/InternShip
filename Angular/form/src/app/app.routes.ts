@@ -9,6 +9,7 @@ import { UseDirectiveComponent } from './Component/learn-directive/use-directive
 import { UsepipeComponent } from './Component/learn-pipe/usepipe/usepipe.component';
 import { ParentComponent } from './Component/learn-lifecycle/parent/parent.component';
 import { LearnRxjsComponent } from './Component/learn-rxjs/learn-rxjs.component';
+import { LearnImageComponent } from './Component/learn-image/learn-image.component';
 
 export const routes: Routes = [
     {
@@ -55,6 +56,10 @@ export const routes: Routes = [
                     path:'rxjs',
                     component:LearnRxjsComponent
 
+                },
+                {
+                    path:'learn-image',
+                    component:LearnImageComponent
                 }
                
             ]
