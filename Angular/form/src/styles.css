@@ -18,7 +18,7 @@
 @layer components{
     .card
     {
-        @apply w-[10rem] h-[10rem] bg-black flex items-center justify-center m-2
+        @apply w-[10rem] h-[10rem] bg-black flex items-center justify-center m-2 selection:bg-amber-500
         
      
     }
