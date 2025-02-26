@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme{
+    --color-chunk:pink;
+}
+/* base for h1 ,p and other tag */
+/* apply directive use for applying utility classes of tailwind css */
+@layer base
+{
+    h1{
+        @apply text-base font-medium text-slate-900
+    }
+
+}
+
+/* componets like card and ohter reusable styles */
+@layer components{
+    .card
+    {
+        @apply w-[10rem] h-[10rem] bg-black flex items-center justify-center m-2
+        
+     
+    }
+}
+ 
+
+/* for utility class  */
+@utility flex-center{
+        @apply flex justify-center 
+}
