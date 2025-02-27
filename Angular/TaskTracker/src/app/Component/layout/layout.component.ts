@@ -9,7 +9,7 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
-
+  isSidebarOpen: boolean = false;
   router:Router=inject(Router)
   navigation=[
     {
@@ -41,6 +41,12 @@ export class LayoutComponent {
   {
     this.router.navigateByUrl('all-task')
     
+  }
+
+
+  toggleSidebar() {
+    
+    this.isSidebarOpen = !this.isSidebarOpen; // Toggle sidebar visibility
   }
 
 }

@@ -7,4 +7,24 @@
     {
         @apply flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 
     }
+    .NoteBook
+    {
+        @apply fixed inset-0 flex items-center justify-center p-4 sm:ml-64
+    }
+    .BookStyle
+    {
+        @apply p-6 rounded-lg bg-slate-100 shadow-lg w-full max-w-md
+    }
+    .BookTitle
+    {
+        @apply flex justify-end gap-x-24 w-full
+    }
+    .BookLabel
+    {
+        @apply block text-sm font-medium text-gray-700
+    }
+    .BookInput
+    {
+        @apply caret-amber-700 w-full p-2 border rounded-md focus:ring focus:ring-amber-400 focus:border-amber-400
+    }
 }
