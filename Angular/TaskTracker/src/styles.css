@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+
+@layer components{
+    .side-nav
+    {
+        @apply flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 
+    }
+}
