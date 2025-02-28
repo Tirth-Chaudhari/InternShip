@@ -20,13 +20,15 @@ export class AllTaskComponent
     {
         this.NoteBookService.Add.next(true);
     }
-    updateTask(task: NoteBook) {
-    
-      
+    updateTask(task: NoteBook) 
+    {
+        this.NoteBookService.Update.next(task)
+
     }
   
     deleteTask(task: NoteBook) {
       console.log('Delete task:', task);
+      this.NoteBookService.Delete.next(task);
     }
     toggleImportant(task: NoteBook) {
       task.important = !task.important;
@@ -36,6 +38,11 @@ export class AllTaskComponent
     toggleCompleted(task: NoteBook) {
       task.completed = !task.completed;
       
+    }
+
+    showTask(task:NoteBook)
+    {
+        this.NoteBookService.ShowTask.next(task);
     }
   
    

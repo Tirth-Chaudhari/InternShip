@@ -7,12 +7,11 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class NoteBookService 
 {
   Add:BehaviorSubject<boolean>=new BehaviorSubject(false)
-  Update:BehaviorSubject<boolean>=new BehaviorSubject(false)
-  Delete:BehaviorSubject<boolean>=new BehaviorSubject(false)
+  Update:Subject<NoteBook>=new Subject()
+  Delete:Subject<NoteBook>=new Subject()
+  ShowTask:Subject<NoteBook> =new Subject()
   AllTask:NoteBook[]=[];
-  CompletedTask:NoteBook[]=[];
-  ImportantTask:NoteBook[]=[];
-  IncompletedTask:NoteBook[]=[];
+  
   
   constructor() { }
 }

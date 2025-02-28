@@ -50,8 +50,6 @@
         }
       </div>
 
-
-
       <!-- Submit Button -->
       <button type="submit"
         class="w-full bg-amber-500 text-white py-2 rounded-md hover:bg-amber-600 transition duration-300"
@@ -62,5 +60,129 @@
   </div>
 </div>
 
+}
+
+@if(OpenUpdateTask)
+{
+  <div class="NoteBook">
+    <div class="BookStyle">
+      <div class="BookTitle">
+        <h2 class="text-2xl font-semibold text-black text-center mb-4">Update Notebook</h2>
+        <!-- close notebook -->
+        <div class="cursor-pointer mt-2 hover:text-gray-800" (click)="CloseUpdateTask()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600 hover:text-gray-800" viewBox="0 0 24 24"
+            fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M6.225 4.811a.75.75 0 011.06 0L12 9.525l4.715-4.714a.75.75 0 111.06 1.06L13.06 10.585l4.715 4.715a.75.75 0 01-1.06 1.06L12 11.645l-4.715 4.715a.75.75 0 01-1.06-1.06l4.714-4.715-4.714-4.714a.75.75 0 010-1.06z"
+              clip-rule="evenodd" />
+          </svg>
+        </div>
+      </div>
+      <form [formGroup]="updateTaskForm" (ngSubmit)="UpdateTask()" class="space-y-4">
+  
+        <!-- Title -->
+        <div>
+          <label class="BookLabel">Title</label>
+          <input type="text" formControlName="title" name="title" required
+            class="BookInput"/>
+          @if(updateTaskForm.controls['title']?.errors?.['required'] && updateTaskForm.controls['title'].touched)
+          {
+          <span style="color: red;margin-bottom: 1rem;">title is required</span>
+          }
+        </div>
+  
+  
+        <!-- Description -->
+        <div>
+          <label class="BookLabel">Description</label>
+          <textarea formControlName="description" rows="3" name="description" required
+            class="BookInput"></textarea>
+          @if(updateTaskForm.controls['description']?.errors?.['required'] && updateTaskForm.controls['description'].touched)
+          {
+          <span style="color: red;margin-bottom: 1rem;">description is required</span>
+          }
+        </div>
+  
+        <!-- Date -->
+        <div>
+          <label class="BookLabel">Date</label>
+          <input type="date" formControlName="date" required
+            class="BookInput" />
+          @if(updateTaskForm.controls['date']?.errors?.['required'] && updateTaskForm.controls['date'].touched)
+          {
+          <span style="color: red;margin-bottom: 1rem;">date is required</span>
+          }
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit"
+          class="w-full bg-amber-500 text-white py-2 rounded-md hover:bg-amber-600 transition duration-300"
+          [disabled]="updateTaskForm.invalid  ">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+}
+
+@if(ShowTask)
+{
+  <div class="NoteBook">
+    <div class="BookStyle">
+      <div class="BookTitle">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Notebook Details</h2>
+        <!-- close notebook -->
+        <div class="cursor-pointer mt-2 hover:text-gray-800" (click)=" CloseShowTask()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600 hover:text-gray-800" viewBox="0 0 24 24"
+            fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M6.225 4.811a.75.75 0 011.06 0L12 9.525l4.715-4.714a.75.75 0 111.06 1.06L13.06 10.585l4.715 4.715a.75.75 0 01-1.06 1.06L12 11.645l-4.715 4.715a.75.75 0 01-1.06-1.06l4.714-4.715-4.714-4.714a.75.75 0 010-1.06z"
+              clip-rule="evenodd" />
+          </svg>
+        </div>
+      </div>
+      
+      <div class="flex flex-col space-y-4 ">
+        <div class="flex items-center">
+          <label class="font-medium text-gray-700 w-24">Title:</label>
+          <div class="text-gray-900 font-semibold">{{task.title}}</div>
+        </div>
+  
+        <div class="flex items-center">
+          <label class="font-medium text-gray-700 w-24">Description:</label>
+          <div class="text-gray-600">{{task.description}}</div>
+        </div>
+  
+        <div class="flex items-center">
+          <label class="font-medium text-gray-700 w-24">Date:</label>
+          <div class="text-gray-600">{{ task.date }}</div>
+        </div>
+  
+        <div class="flex items-center">
+          <label class="font-medium text-gray-700 w-24">Completed:</label>
+          <div class="text-gray-900 font-semibold">
+            <span class="px-2 py-1 rounded text-sm"
+              :class="task.completed ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'">
+              {{ task.completed ? 'Yes' : 'No' }}
+            </span>
+          </div>
+        </div>
+  
+        <div class="flex items-center">
+          <label class="font-medium text-gray-700 w-24">Important:</label>
+          <div class="text-gray-900 font-semibold">
+            <span class="px-2 py-1 rounded text-sm"
+              :class="task.important ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-200 text-gray-700'">
+              {{ task.important ? 'Yes' : 'No' }}
+            </span>
+          </div>
+        </div>
+      </div>
+  
+      
+    </div>
+  </div>
+  
+  
 }
 <router-outlet />
