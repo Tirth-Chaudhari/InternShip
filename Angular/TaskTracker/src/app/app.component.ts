@@ -72,13 +72,13 @@ export class AppComponent {
       this.NoteBookService.Delete.subscribe((Task:NoteBook)=>
         {
             let index=this.NoteBookService.AllTask.indexOf(Task);
-            this.NoteBookService.AllTask.splice(index,1);
-          // also possible using filter             
-          //  this.NoteBookService.AllTask= this.NoteBookService.AllTask.filter((task,ind)=>
-          //   {
+            // this.NoteBookService.AllTask.splice(index,1);
+          // also possible using filter    here use filter for pure pipes concept so change detects          
+           this.NoteBookService.AllTask= this.NoteBookService.AllTask.filter((task,ind)=>
+            {
                   
-          //         return index!==ind;
-          //   })
+                  return index!==ind;
+            })
             
             
         })
@@ -86,6 +86,10 @@ export class AppComponent {
         {
               this.ShowTask=true;
               this.task=Task;
+        })
+        this.NoteBookService.StoreTask.subscribe(()=>
+        {
+              localStorage.setItem('AllTask',JSON.stringify(this.NoteBookService.AllTask))
         })
   }
 
@@ -99,7 +103,8 @@ export class AppComponent {
       important:this.addTaskForm.get('important')?.value
      }
      this.NoteBookService.AllTask.push(obj);
-     console.log(this.NoteBookService.AllTask);
+     
+     this.NoteBookService.StoreTask.next();
      
      this.CloseAddTask();
   }
@@ -120,6 +125,7 @@ export class AppComponent {
       this.updateTask.completed=this.updateTaskForm.get('completed')?.value,
       this.updateTask.important=this.updateTaskForm.get('important')?.value
       this.CloseUpdateTask()
+      this.NoteBookService.StoreTask.next();
   }
   CloseUpdateTask()
   {

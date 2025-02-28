@@ -5,15 +5,19 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class NoteBookService 
-{
+{ 
   Add:BehaviorSubject<boolean>=new BehaviorSubject(false)
   Update:Subject<NoteBook>=new Subject()
   Delete:Subject<NoteBook>=new Subject()
   ShowTask:Subject<NoteBook> =new Subject()
+  StoreTask :Subject<void> =new Subject();
   AllTask:NoteBook[]=[];
   
   
-  constructor() { }
+  constructor() { 
+
+    this.AllTask = JSON.parse(localStorage.getItem('AllTask') || "[]");
+  }
 }
 
 

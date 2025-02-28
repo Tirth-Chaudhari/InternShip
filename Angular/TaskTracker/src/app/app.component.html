@@ -31,7 +31,7 @@
       <!-- Description -->
       <div>
         <label class="BookLabel">Description</label>
-        <textarea formControlName="description" rows="3" name="description" required
+        <textarea formControlName="description" rows="3" maxlength="15" name="description" required
           class="BookInput"></textarea>
         @if(addTaskForm.controls['description']?.errors?.['required'] && addTaskForm.controls['description'].touched)
         {
