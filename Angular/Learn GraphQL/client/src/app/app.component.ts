@@ -53,9 +53,25 @@ export class AppComponent implements OnInit {
           "title":"Learn More About GraphQL with Angular",
           "completed":false
           }
-      }
+      }  
+      }).subscribe((data)=>
+      {
+        console.log(data);
         
-        
+      })
+
+      this.apollo.mutate({
+        mutation: gql`
+       mutation ExampleQuery($deleteTodoId: ID!) {
+        deleteTodo(id: $deleteTodoId) {
+            title
+            user{
+              name
+            }
+          }}`,
+      variables:{
+        deleteTodoId: "1",
+      }  
       }).subscribe((data)=>
       {
         console.log(data);
