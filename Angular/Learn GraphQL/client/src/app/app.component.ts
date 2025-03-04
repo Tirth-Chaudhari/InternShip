@@ -31,12 +31,35 @@ export class AppComponent implements OnInit {
         `,
       })
       .valueChanges.subscribe((result: any) => {
-        
         this.loading=result.loading
         console.log(result.error);
-        
         console.log(result.data);
-        
       });
+    
+      this.apollo.mutate({
+        mutation: gql`
+        mutation ExampleQuery($updateTodoId: ID!,$edit:EditTodoInput) {
+        updateTodo(id: $updateTodoId,edit:$edit) {
+              title,
+              user {
+                name,
+                email,
+                username
+              }
+      }}`,
+      variables:{
+        updateTodoId: "1",
+        edit:{
+          "title":"Learn More About GraphQL with Angular",
+          "completed":false
+          }
+      }
+        
+        
+      }).subscribe((data)=>
+      {
+        console.log(data);
+        
+      })
   }
 }
