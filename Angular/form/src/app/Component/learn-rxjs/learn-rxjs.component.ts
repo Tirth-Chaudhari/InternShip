@@ -1,7 +1,8 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AsyncSubject, BehaviorSubject, debounce, debounceTime, distinctUntilChanged, from, map, Observable, of, ReplaySubject, Subject, switchMap } from 'rxjs';
+import { UserService } from '../../Service/User/user.service';
 
 @Component({
   selector: 'app-learn-rxjs',
@@ -13,7 +14,9 @@ export class LearnRxjsComponent
 {
     data:any[]=[];
     key:String='';
-
+    UserService=inject(UserService)
+   
+   
     // subject:Subject<String>=new Subject<String>();
 
     constructor()
@@ -29,6 +32,11 @@ export class LearnRxjsComponent
           console.log(value);
           
         })
+          this.UserService.task.subscribe(()=>
+          {
+              console.log('hello');
+              
+          })
 
     }
     // getdata()

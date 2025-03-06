@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, computed, effect, resource, Signal, signal } from '@angular/core';
-import { rxResource } from '@angular/core/rxjs-interop';
+import { rxResource, toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
+import { switchMap } from 'rxjs';
 @Component({
   selector: 'app-learn-signal',
   imports: [FormsModule],
@@ -42,6 +43,8 @@ export class LearnSignalComponent  {
         this.count.update((prev)=>prev+1);
       }
 
+
+      // here using rxResource get user data based on id
       users=rxResource({
           request:()=> ({
             id:this.userId()
@@ -56,6 +59,24 @@ export class LearnSignalComponent  {
           console.log(this.users.value());
           
       })
+
+
+      // here using toObservable and toSignal get user data based on id
+      observableUser=toObservable(this.userId).pipe(
+        switchMap(id=> this.http.get<any>(`${this.url}/${id}`)),
+      )
+      tosignalUser=toSignal(this.observableUser,{initialValue:null})
+      
+      private eff1=effect(()=>
+      {
+          console.log('before toSignal');
+          
+          console.log(this.tosignalUser());
+          
+          
+      })
+
+
 
       onClick()
       {

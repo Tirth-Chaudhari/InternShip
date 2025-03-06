@@ -12,7 +12,10 @@ export class LearnInjectionComponent
 {
 
   UserService=inject(UserService)
-  
+  ngOnInit()
+  {
+      this.UserService.task.next('task Completed');
+  } 
   getUsers()
   {
       this.UserService.getUser().subscribe((result:User[])=>
