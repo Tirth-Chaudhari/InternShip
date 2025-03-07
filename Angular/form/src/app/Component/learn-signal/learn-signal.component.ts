@@ -11,6 +11,7 @@ import { switchMap } from 'rxjs';
 })
 export class LearnSignalComponent  {
       private url='https://jsonplaceholder.typicode.com/users'
+      private posturl='https://jsonplaceholder.typicode.com/posts'
 
       uid:number=1;
       userId=signal<number>(1)
@@ -77,10 +78,35 @@ export class LearnSignalComponent  {
       })
 
 
+      usersPost=rxResource({
+        request:()=> ({
+          obj:{
+            userId:this.userId(),
+            id:this.userId(),
+            title:'checking api',
+            body:'no body'
+          }
+        }),
+        loader:({request})=> this.http.post<any>(`${this.posturl}`,request.obj)
+      })
+      eff2=effect(()=>
+      {
+        console.log(this.usersPost.value()); 
+      })
+
+
+
 
       onClick()
       {
         this.userId.set(this.uid);
+      }
+      onUpdate()
+      {
+         this.usersPost.value.update((prev)=>({
+          ...prev,
+          title:'checked api'
+        }))
       }
       
 
