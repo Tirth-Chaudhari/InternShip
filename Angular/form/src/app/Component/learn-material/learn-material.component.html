@@ -1,0 +1,51 @@
+<mat-slide-toggle>Toggle me!</mat-slide-toggle> 
+<mat-card-header>Material UI</mat-card-header>
+
+
+<mat-card  class="w-64" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="absolute top-1/5 left-1/2">
+        <mat-card-actions>
+            <button mat-button (click)="OpenForm()">open form</button>
+        </mat-card-actions>
+    <div class="flex gap-2 w-64 flex-wrap">
+        @if(open)
+        {
+        <mat-card class="p-8" appearance="outlined">
+          <mat-form-field>
+              <mat-label>Input</mat-label>
+              <input matInput>
+          </mat-form-field>
+            <mat-form-field>
+              <mat-label>Select</mat-label>
+              <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Textarea</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+        </mat-card>
+        }
+    </div>
+  </div>
