@@ -24,28 +24,7 @@
 
   <div class="absolute top-1/5 left-1/2">
         <mat-card-actions>
-            <button mat-button (click)="OpenForm()">open form</button>
+            <button mat-button (click)="OpenDialog()">open Dialog Box</button>
         </mat-card-actions>
-    <div class="flex gap-2 w-64 flex-wrap">
-        @if(open)
-        {
-        <mat-card class="p-8" appearance="outlined">
-          <mat-form-field>
-              <mat-label>Input</mat-label>
-              <input matInput>
-          </mat-form-field>
-            <mat-form-field>
-              <mat-label>Select</mat-label>
-              <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Textarea</mat-label>
-              <textarea matInput></textarea>
-            </mat-form-field>
-        </mat-card>
-        }
-    </div>
+    
   </div>

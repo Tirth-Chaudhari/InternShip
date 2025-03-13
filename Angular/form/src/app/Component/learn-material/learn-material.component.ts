@@ -5,18 +5,22 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { LearnDialogComponent } from '../learn-dialog/learn-dialog.component';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 @Component({
   selector: 'app-learn-material',
-  imports: [MatSlideToggleModule,MatCardModule, MatButtonModule,MatSelectModule,MatInputModule,MatFormFieldModule],
+  imports: [MatSlideToggleModule,MatDialogModule,MatCardModule, MatButtonModule,MatSelectModule,MatInputModule,MatFormFieldModule,LearnDialogComponent],
   templateUrl: './learn-material.component.html',
   styleUrl: './learn-material.component.css'
 })
 export class LearnMaterialComponent 
 {
-   open:boolean=false;
+  constructor(private dialog:MatDialog)
+  {
 
-   OpenForm()
+  }
+   OpenDialog()
    {
-    this.open=!this.open
+      this.dialog.open(LearnDialogComponent);
    }
 }
