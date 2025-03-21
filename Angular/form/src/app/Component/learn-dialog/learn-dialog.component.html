@@ -76,6 +76,10 @@
 
         <div mat-dialog-actions class="">
             <button class="flex-1"  mat-raised-button mat-dialog-close>Cancel</button>
+            @if(data){
+                <button class="flex-1" mat-raised-button [mat-dialog-close]="true" [disabled]="!registerForm.valid" (click)="UpdateEmployee()">Update</button>
+            }@else{
             <button class="flex-1" mat-raised-button [mat-dialog-close]="true" [disabled]="!registerForm.valid" type="submit">Save</button>
+            }
         </div>
 </form>
