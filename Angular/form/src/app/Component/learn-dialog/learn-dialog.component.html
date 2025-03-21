@@ -1,0 +1,85 @@
+<div>
+    <h2 mat-dialog-title>Form</h2>
+</div>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div mat-dialog-content>
+            <div class="flex gap-4 flex-wrap justify-center">
+                <mat-form-field appearance="outline">
+                <!-- <mat-label>Outline form field</mat-label> -->
+                <input matInput required placeholder="Enter Name" type="text" name="name" formControlName="name">
+                @if(registerForm.controls['name']?.errors?.['required'] && registerForm.controls['name'].touched)
+                {
+                    <mat-error>name is required</mat-error>
+                }
+             </mat-form-field>
+                
+
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter email" type="email" name="email" formControlName="email">
+                    @if(registerForm.controls['email']?.errors?.['required'] && registerForm.controls['email'].touched)
+                    {
+                        <mat-error >email required</mat-error>
+                    }
+                    @if(registerForm.controls['email']?.errors?.['email'])
+                    {
+                        <mat-error >enter valid email</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                <input matInput placeholder="Enter password" type="password" name="password" formControlName="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).+"
+                >
+                @if(registerForm.controls['password']?.errors?.['required'] && registerForm.controls['password'].touched)
+                 {
+                <mat-error>password is required</mat-error>
+                    }
+                @if(registerForm.controls['password']?.errors?.['minlength'] && registerForm.controls['password'].touched)
+                {
+                    <mat-error>password minimum 6 character required</mat-error>
+                }
+                @if(registerForm.controls['password']?.errors?.['pattern'] && registerForm.controls['password'].touched)
+                {
+                    <mat-error>password pattern not match</mat-error>
+                }
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter confirm password" name="confirm-password" type="password" formControlName="confirmPassword"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).+"
+                    >
+                    @if(registerForm.controls['confirmPassword']?.errors?.['required'] && registerForm.controls['confirmPassword'].touched)
+                    {
+                        <mat-error>password is required</mat-error  >
+                    }
+                    @if(registerForm.controls['confirmPassword'].value!=registerForm.controls['password'].value && registerForm.controls['confirmPassword'].touched)
+                    {
+                        <mat-error> <br/>confirm-password not match</mat-error  >
+                    }
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="">
+                    <!-- <mat-label>State</mat-label> -->
+                    <mat-select  name="state" formControlName="state">
+                    <mat-option>None</mat-option>
+                    @for (state of states; track state) {
+                        <mat-option [value]="state">{{state}}</mat-option>
+                    }
+                    </mat-select>
+                </mat-form-field> 
+                <mat-radio-group class="w-48"  name="gender" formControlName="gender">
+                    <mat-radio-button  value="Male">Male</mat-radio-button>
+                    <mat-radio-button  value="Female">Female</mat-radio-button>
+                    <mat-radio-button  value="Other">Other</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            
+        </div>
+
+        <div mat-dialog-actions class="">
+            <button class="flex-1"  mat-raised-button mat-dialog-close>Cancel</button>
+            @if(data){
+                <button class="flex-1" mat-raised-button [mat-dialog-close]="true" [disabled]="!registerForm.valid" (click)="UpdateEmployee()">Update</button>
+            }@else{
+            <button class="flex-1" mat-raised-button [mat-dialog-close]="true" [disabled]="!registerForm.valid" type="submit">Save</button>
+            }
+        </div>
+</form>

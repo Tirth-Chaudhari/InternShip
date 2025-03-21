@@ -99,7 +99,16 @@ export class LearnSignalComponent  {
 
       onClick()
       {
-        this.userId.set(this.uid);
+       
+        setTimeout(()=>
+        {
+          this.userId.set(4);
+          
+        },4000)
+        setTimeout(()=>
+        {
+          this.userId.set(5);
+        },4010)
       }
       onUpdate()
       {

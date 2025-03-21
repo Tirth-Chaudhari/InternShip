@@ -11,6 +11,7 @@ import { ParentComponent } from './Component/learn-lifecycle/parent/parent.compo
 import { LearnRxjsComponent } from './Component/learn-rxjs/learn-rxjs.component';
 import { LearnImageComponent } from './Component/learn-image/learn-image.component';
 import { LearnTailwindComponent } from './Component/learn-tailwind/learn-tailwind.component';
+import { LearnMaterialComponent } from './Component/learn-material/learn-material.component';
 
 export const routes: Routes = [
     {
@@ -65,6 +66,10 @@ export const routes: Routes = [
                 {
                     path:'learn-tailwind',
                     component:LearnTailwindComponent
+                },
+                {
+                    path:'learn-material',
+                    component:LearnMaterialComponent
                 }
                
             ]

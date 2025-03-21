@@ -16,15 +16,25 @@ export class AppComponent implements OnInit {
   constructor(private apollo: Apollo) {}
 
   ngOnInit() {
+
+  const userFragment=gql`
+    fragment user on User{
+      name,
+      email,
+      username
+    }
+  `
+    
     this.apollo
       .watchQuery({
         query: gql`
+        ${userFragment}
           query {
             getTodos {
               title
               completed
               user{
-              name
+              ...user
               }
             }
           }
@@ -38,13 +48,12 @@ export class AppComponent implements OnInit {
     
       this.apollo.mutate({
         mutation: gql`
+        ${userFragment}
         mutation ExampleQuery($updateTodoId: ID!,$edit:EditTodoInput) {
         updateTodo(id: $updateTodoId,edit:$edit) {
               title,
               user {
-                name,
-                email,
-                username
+              ...user
               }
       }}`,
       variables:{
@@ -79,3 +88,4 @@ export class AppComponent implements OnInit {
       })
   }
 }
+
